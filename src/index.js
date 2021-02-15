@@ -7,6 +7,7 @@ import Login from './pages/Login';
 import Confirmado from './pages/Confirmado';
 import Salao from './pages/Salao';
 import Cozinha from './pages/Cozinha';
+import Cafe from './pages/Cafe';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter,Switch, Route} from 'react-router-dom'
 
@@ -19,6 +20,7 @@ ReactDOM.render(
       <Route path = "/confirmado" component={Confirmado} exact/>
       <Route path = "/salao" component={Salao} exact/>
       <Route path = "/cozinha" component={Cozinha} exact/>
+      <Route path = "/salao/cafe" component={Cafe} exact/>
     </Switch>  
   </BrowserRouter>,
   document.getElementById('root')
