@@ -1,7 +1,14 @@
 import React, { useState } from 'react';
+import {useHistory} from 'react-router-dom'
 import './Salao.css';
 
 function Salao() {
+  const history = useHistory()
+
+  const routerCafe=()=>{
+    history.push('/salao/cafe')
+  }
+
   const token = localStorage.getItem("token")
   const id = localStorage.getItem("id")
   const [nome, setNome] = useState('');
@@ -26,7 +33,7 @@ function Salao() {
       </div>      
       <h1 className="messageSelect">Selecione o Período:</h1>
       <div className="btnSalao">        
-        <button>Café da manhã</button>
+        <button onClick={routerCafe}>Café da manhã</button>
         <button>Resto do dia </button>
       </div>      
     </div>
