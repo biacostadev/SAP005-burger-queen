@@ -3,9 +3,9 @@ import BtnClick from "./BtnClick";
 
 
 class ShowMenuCafe extends React.Component {
-  
-
-  render(props) {
+  render() {
+    const menu = this.props.Menu
+    console.log(menu)
     return (
       <>
         <BtnClick text="texto 1" className="BtnNav" label="Opção 1" />
@@ -15,8 +15,7 @@ class ShowMenuCafe extends React.Component {
       </>
     );
   }
-
-}
-
+  }
+  
 
 export default ShowMenuCafe

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 class ItensPedidos extends React.Component {
-  render(props) {
+  render(props) {    
     return (
       <div id="divPedidos">
           <p>item 1</p>
@@ -13,6 +13,4 @@ class ItensPedidos extends React.Component {
   }
 
 }
-
-
 export default ItensPedidos
