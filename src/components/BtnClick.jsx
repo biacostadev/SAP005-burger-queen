@@ -16,9 +16,10 @@ class BtnClick extends React.Component {
   render(props) {
     return (
       <div className="divMae">
-        <h1>{this.props.text}</h1>
+        <h1 className="divName">{this.props.text}</h1>
+        <h1 className="divPrice">R$ {this.props.price},00</h1>
         <button onClick={this.handleClick} className={this.props.className}>
-          {this.props.label}
+          Adicionar
         </button>
       </div>
     );
