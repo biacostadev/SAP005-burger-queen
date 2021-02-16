@@ -8,10 +8,10 @@ class ShowMenuCafe extends React.Component {
     console.log(menu)
     return (
       <>
-        <BtnClick text="texto 1" className="BtnNav" label="Opção 1" />
-        <BtnClick text="texto 2" className="BtnNav" label="Opção 2" />
-        <BtnClick text="texto 3" className="BtnNav" label="Opção 3" />
-        <BtnClick text="texto 4" className="BtnNav" label="Opção 4" />
+        <BtnClick text={menu[0].name} price={menu[0].price} className="BtnNav" label="Opção 1" />
+        <BtnClick text={menu[1].name} price={menu[1].price} className="BtnNav" label="Opção 2" />
+        <BtnClick text={menu[2].name} price={menu[2].price} className="BtnNav" label="Opção 3" />
+        <BtnClick text={menu[3].name} price={menu[3].price} className="BtnNav" label="Opção 4" />
       </>
     );
   }

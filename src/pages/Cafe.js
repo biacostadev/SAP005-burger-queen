@@ -26,8 +26,11 @@ function Cafe() {
   
     return (
     <div className="Cafe">
+      <div className="CafeMenu">
+
       <ShowMenuCafe Menu={ menu }/>
       <ItensPedidos />
+      </div>
     </div>
   );
 }

@@ -33,8 +33,8 @@ function Salao() {
       </div>      
       <h1 className="messageSelect">Selecione o Período:</h1>
       <div className="btnSalao">        
-        <button onClick={routerCafe}>Café da manhã</button>
-        <button>Resto do dia </button>
+        <button className="btnSalaoRota" onClick={routerCafe}>Café da manhã</button>
+        <button className="btnSalaoRota">Resto do dia </button>
       </div>      
     </div>
     )
