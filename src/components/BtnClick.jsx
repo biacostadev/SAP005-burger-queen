@@ -1,31 +1,58 @@
-import React, { Component } from 'react';
+// import React from 'react';
+
+// function BtnClick() {
+//   // const menu = Menu
+//   //   console.log(menu)
+
+//   // const [id, setId] = useState('');
+//   //   handleClick() {
+//   //   console.log('Clicado');
+//   //   console.log(this.props.id);
+//   //   console.log(this.props.text);
+
+//   //   console.log(this.props.price);
+
+//   // }
+
+//   // onClick = {
+//   //   handleClick = (event) => {
+//   //     blabla.target.getAttribute('name');
+//   //     setProdutosEscolhidos(jaFoi => ({
+//   //       ...jaFoi,
+//   //       oQueFoiClicadoAgora
+//   //     }) 
+//   // }
+//   // }
 
 
-class BtnClick extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleClick = this.handleClick.bind(this);
-  }
 
-  handleClick() {
-    console.log('Clicado');
-    console.log(this.props.text);
-  }
+//   // render(props) {
+    
+//   return (
+//     <>
+//     {menu && menu.map((item) => (
+//     <div className="divMae">
+//       <h1 className="divName"></h1>
+//       <h1 className="divPrice">R$ ,00</h1>
+//       <button id="{ item.id }" onClick = {
+//         (event) => {
+//           const id = event.target.id;
+//           // setProdutosEscolhidos(jaFoi => ({
+//           //   ...jaFoi,
+//           //   oQueFoiClicadoAgora
+//           // }) 
+//           console.log(id)
+//         }
+//       } className="{className}">
+//         Adicionar
+//         </button>
+//     </div>
+//     ))}
+//     </>
+//   );
+//   // }
+
+// }
 
 
-  render(props) {
-    return (
-      <div className="divMae">
-        <h1 className="divName">{this.props.text}</h1>
-        <h1 className="divPrice">R$ {this.props.price},00</h1>
-        <button onClick={this.handleClick} className={this.props.className}>
-          Adicionar
-        </button>
-      </div>
-    );
-  }
-
-}
-
-
-export default BtnClick
+// export default BtnClick
