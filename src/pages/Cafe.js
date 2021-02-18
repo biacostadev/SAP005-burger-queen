@@ -8,9 +8,11 @@ function Cafe() {
     getProducts()
   }, [])
 
+  
   const [menu, setMenu] = useState('');
+  const [totalValor, setTotalValor] = useState(0);  
   const token = localStorage.getItem("token")
-
+  
   const getProducts = () => {
     fetch('https://lab-api-bq.herokuapp.com/products', {
       headers: {
@@ -18,16 +20,29 @@ function Cafe() {
         "Authorization": `${token}`
       },
     })
-      .then((response) => response.json())
-      .then((json) => {
-        const breakfast = json.filter(item => item.type === 'breakfast')
-        setMenu(breakfast)
-      })
+    .then((response) => response.json())
+    .then((json) => {
+      const breakfast = json.filter(item => item.type === 'breakfast')
+      setMenu(breakfast)
+    })
+  }
+  
+  const [pedidos, setPedidos] = useState([]);
+  
+  const adicionarItem = (item) => {
+    const newArray = pedidos
+    newArray.push(item)
+    setPedidos(newArray)
+    somarItens()
   }
 
-  const [pedidos, setPedidos] = useState('');
-  const [jaFoi, setJaFoi] = useState(pedidos);
-
+  const somarItens = () => {
+    pedidos.forEach(item => {
+      const aux = Number(item.price)      
+      setTotalValor(aux + totalValor)
+    })
+  }
+  
   return (
     <div className="Cafe">
       <div className="CafeMenu">
@@ -47,17 +62,8 @@ function Cafe() {
                   id: id,
                   nome: name,
                   price: price
-                }
-
-                setJaFoi(pedidos)
-                setPedidos(jaFoi => [...jaFoi, itemPedido])
-                console.log("Já foi")
-                console.log(jaFoi)
-                console.log("Pedidos")
-                console.log(pedidos)
-                console.log("Item Pedido")
-                console.log(itemPedido)
-
+                }                   
+               adicionarItem(itemPedido)
               }
             } className="btnAdc">
               Adicionar
@@ -67,20 +73,27 @@ function Cafe() {
         <div className="divPedidosBlock">
           <div className="divPedidos">
             <h1 className="divPedidosTitle">Pedido:</h1>
-            {pedidos && pedidos.map((item) => (
-              <div className="divPedidosIndividuais" key={Math.random()}>
-                <p key={Math.random()}>{item.nome}</p>
-                <p key={Math.random()}>R${item.price},00</p>
-              </div>
-            ))}
+            
+            {pedidos && pedidos.map((item)=>
+            <div className="divPedidosIndividuais" key={Math.random()}>
+            <p key={Math.random()}>{item.nome}</p>
+            <p key={Math.random()}>R${item.price},00</p>
           </div>
+            )}            
+           <h3>{totalValor}</h3>  
+          </div>
+          
           <button onClick={
             (event) => {
               const parent = event.target.parentNode;
               const onlyPedidos = parent.innerText;
+        
               console.log(onlyPedidos)
+
             }
           } className="btnAdc">Fechar</button>
+         
+          
         </div>
       </div>
     </div>
