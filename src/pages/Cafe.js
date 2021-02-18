@@ -12,7 +12,7 @@ function Cafe() {
   const [menu, setMenu] = useState('');
   const [totalValor, setTotalValor] = useState(0);  
   const token = localStorage.getItem("token")
-  
+  const [valueDelect, setValueDelect] = useState(totalValor); 
   const getProducts = () => {
     fetch('https://lab-api-bq.herokuapp.com/products', {
       headers: {
@@ -41,6 +41,16 @@ function Cafe() {
       const aux = Number(item.price)      
       setTotalValor(aux + totalValor)
     })
+  }
+
+  const deletItem = (item, pedidos)=>{  
+    pedidos.splice(pedidos.indexOf(item),1)
+    const value = item.price
+    setValueDelect(totalValor-value)  
+    setTotalValor(totalValor - Number(item.price))
+    console.log(item)
+    console.log(pedidos)
+    console.log(valueDelect)
   }
   
   return (
@@ -75,20 +85,19 @@ function Cafe() {
             <h1 className="divPedidosTitle">Pedido:</h1>
             
             {pedidos && pedidos.map((item)=>
-            <div className="divPedidosIndividuais" key={Math.random()}>
+            <div className="divPedidosIndividuais" key={Math.random()}> 
+            <button key={Math.random()} className='btnDelet' onClick = {()=>deletItem(item,pedidos)}>X</button>           
             <p key={Math.random()}>{item.nome}</p>
-            <p key={Math.random()}>R${item.price},00</p>
-          </div>
+            <p key={Math.random()}>R${item.price},00</p>            
+            </div>         
             )}            
            <h3>{totalValor}</h3>  
           </div>
           
           <button onClick={
             (event) => {
-              const parent = event.target.parentNode;
-              const onlyPedidos = parent.innerText;
-        
-              console.log(onlyPedidos)
+              console.log(pedidos)
+              console.log(totalValor)
 
             }
           } className="btnAdc">Fechar</button>
