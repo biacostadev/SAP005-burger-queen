@@ -50,10 +50,18 @@ function Salao() {
   }) 
   }
 
+  const logout = (e) => {
+    e.preventDefault();
+    localStorage.removeItem("token");
+    localStorage.removeItem("id");
+    history.push('/');
+  }
+
   return (
     <div className="Salao">
-      <div>
+      <div className="SalaoHeader">
       <h1>{nome} - {role}</h1>
+      <button onClick={(e) => logout(e)} className="logout">Sair</button>
       </div>
       <h1 className="messageSelect">Selecione o Período:</h1>
       <div className="btnSalao">        

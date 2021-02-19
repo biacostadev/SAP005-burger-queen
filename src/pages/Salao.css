@@ -19,10 +19,16 @@ html{
 
 }
 
+.SalaoHeader {
+  display: flex;
+  justify-content: space-evenly;
+}
+
 .SalaoTitle {
   font-size: 90px;
   line-height: 53px;
 }
+
 .messageSelect{
   margin-top: 40%;
   font-size: 40px;
