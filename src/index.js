@@ -8,7 +8,11 @@ import Confirmado from './pages/Confirmado';
 import Salao from './pages/Salao';
 import Cozinha from './pages/Cozinha';
 import Cafe from './pages/Cafe';
+import AllDay from './pages/AllDay';
+import Burger from './pages/Burger';
+import DrinksSide from './pages/DrinksSide';
 import FecharPedido from './pages/FecharPedido';
+import FecharPedidoAllDay from './pages/FecharPedidoAllDay';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter,Switch, Route,Redirect} from 'react-router-dom'
 import { isAuthenticated } from "./router-auth";
@@ -36,8 +40,11 @@ ReactDOM.render(
       <PrivateRoute path = "/salao" component = {Salao} exact/>
       <PrivateRoute path = "/cozinha" component={Cozinha} exact/>
       <PrivateRoute path = "/salao/cafe" component={Cafe} exact/>
+      <PrivateRoute path = "/salao/allday" component={AllDay} exact/>
+      <PrivateRoute path = "/salao/burger" component={Burger} exact/>
+      <PrivateRoute path = "/salao/drinksside" component={DrinksSide} exact/>
       <PrivateRoute path = "/salao/fechar" component={FecharPedido} exact/>
-      
+      <PrivateRoute path = "/salao/fecharallday" component={FecharPedidoAllDay} exact/>
     </Switch>  
   </BrowserRouter>,
   document.getElementById('root')

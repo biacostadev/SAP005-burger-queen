@@ -14,6 +14,28 @@ function Cadastro() {
   const [password, setPassword] = useState('');
   const [role, setRole] = useState('');
 
+  const postCad = (e) => {
+    e.preventDefault();
+    fetch('https://lab-api-bq.herokuapp.com/users/', {
+      method: 'POST',
+      headers: {
+        'accept': 'application/json',
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      body: `email=${email}&password=${password}&role=${role}&restaurant=BurgerHunger&name=${name}`
+    })
+      .then((response) => response.json())
+      .then((json) => {           
+        if(json.id !== null) {                               
+          routerConfirm();
+        }
+        setName('');
+        setEmail('');
+        setPassword('');
+        setRole('');
+      })
+  }
+
   return (
     <div className="Cadastro">
       <h1 className="CadTitle">Cadastro</h1>
@@ -33,29 +55,7 @@ function Cadastro() {
           <option className="cadInputOption" value="salao">Garçom</option>
           <option className="cadInputOption" value="cozinha">Cozinheiro</option>
         </select>
-        <button className="cadBtn" onClick={(e) => {
-
-          e.preventDefault();
-
-          fetch('https://lab-api-bq.herokuapp.com/users/', {
-            method: 'POST',
-            headers: {
-              'accept': 'application/json',
-              'Content-Type': 'application/x-www-form-urlencoded'
-            },
-            body: `email=${email}&password=${password}&role=${role}&restaurant=BurgerHunger&name=${name}`
-          })
-            .then((response) => response.json())
-            .then((json) => {           
-              if(json.id !== null) {                               
-                routerConfirm();
-              }
-              setName('');
-              setEmail('');
-              setPassword('');
-              setRole('');
-            })
-        }}>Cadastrar</button>
+        <button className="cadBtn" onClick={(e) => postCad(e)}>Cadastrar</button>
       </form>
     </div>
   );

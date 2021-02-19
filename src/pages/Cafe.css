@@ -12,6 +12,18 @@
   border-radius: 25px;
 }
 
+.CafeMenuBtnBack {
+  background-color: #6E3D1C;
+  width: 200px;
+  height: 70px;
+  border: 8px solid #000000;
+  border-radius: 18px;
+  font-size: 35px; 
+  color: #FFFFFF;
+  margin: 30px 0 0 30px;
+  font-weight: bold;
+}
+
 .CafeMenu {
   width: 850px;
   display: flex;
@@ -54,7 +66,7 @@
 .divPedidos {
   margin-top: 20px;
   width: 800px;
-  height: 450px;
+  height: 350px;
   font-size: 40px;
   padding: 20px;
   overflow: scroll;
