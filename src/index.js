@@ -14,23 +14,37 @@ import DrinksSide from './pages/DrinksSide';
 import FecharPedido from './pages/FecharPedido';
 import FecharPedidoAllDay from './pages/FecharPedidoAllDay';
 import reportWebVitals from './reportWebVitals';
-import {BrowserRouter,Switch, Route} from 'react-router-dom'
+import {BrowserRouter,Switch, Route,Redirect} from 'react-router-dom'
+import { isAuthenticated } from "./router-auth";
 
+const PrivateRoute = ({component: Component, ...rest})=>(
+  <Route 
+    {...rest} 
+    render ={props =>(
+      isAuthenticated()? (
+        <Component{...props}/>
+      ) : (
+        <Redirect to={{pathname: '/login', state:{ from: props.location}}} />
+      )
+      )      
+    }
+  />
+);
 ReactDOM.render(
   <BrowserRouter>
     <Switch>
       <Route path = "/" component={App}  exact/>
-      <Route path = "/cadastro" component={Cadastro} exact/>
       <Route path = "/login" component={Login} exact/>
+      <Route path = "/cadastro" component={Cadastro} exact/>
       <Route path = "/confirmado" component={Confirmado} exact/>
-      <Route path = "/salao" component={Salao} exact/>
-      <Route path = "/cozinha" component={Cozinha} exact/>
-      <Route path = "/salao/cafe" component={Cafe} exact/>
-      <Route path = "/salao/allday" component={AllDay} exact/>
-      <Route path = "/salao/burger" component={Burger} exact/>
-      <Route path = "/salao/drinksside" component={DrinksSide} exact/>
-      <Route path = "/salao/fechar" component={FecharPedido} exact/>
-      <Route path = "/salao/fecharallday" component={FecharPedidoAllDay} exact/>
+      <PrivateRoute path = "/salao" component = {Salao} exact/>
+      <PrivateRoute path = "/cozinha" component={Cozinha} exact/>
+      <PrivateRoute path = "/salao/cafe" component={Cafe} exact/>
+      <PrivateRoute path = "/salao/allday" component={AllDay} exact/>
+      <PrivateRoute path = "/salao/burger" component={Burger} exact/>
+      <PrivateRoute path = "/salao/drinksside" component={DrinksSide} exact/>
+      <PrivateRoute path = "/salao/fechar" component={FecharPedido} exact/>
+      <PrivateRoute path = "/salao/fecharallday" component={FecharPedidoAllDay} exact/>
     </Switch>  
   </BrowserRouter>,
   document.getElementById('root')
