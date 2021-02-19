@@ -8,6 +8,7 @@ import Confirmado from './pages/Confirmado';
 import Salao from './pages/Salao';
 import Cozinha from './pages/Cozinha';
 import Cafe from './pages/Cafe';
+import FecharPedido from './pages/FecharPedido';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter,Switch, Route} from 'react-router-dom'
 
@@ -21,6 +22,7 @@ ReactDOM.render(
       <Route path = "/salao" component={Salao} exact/>
       <Route path = "/cozinha" component={Cozinha} exact/>
       <Route path = "/salao/cafe" component={Cafe} exact/>
+      <Route path = "/salao/fechar" component={FecharPedido} exact/>
     </Switch>  
   </BrowserRouter>,
   document.getElementById('root')
