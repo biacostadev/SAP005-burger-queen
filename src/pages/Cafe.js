@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {useHistory} from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import './Cafe.css';
 
 function Cafe() {
@@ -9,14 +9,18 @@ function Cafe() {
 
   const history = useHistory()
 
-  const routerFechar=()=>{
+  const routerFechar = () => {
     history.push('/salao/fechar')
   }
-  
+
+  const routerSalao = () => {
+    history.push('/salao')
+  }
+
   const [menu, setMenu] = useState('');
-  const [totalValor, setTotalValor] = useState(0);  
+  const [totalValor, setTotalValor] = useState(0);
   const token = localStorage.getItem("token")
-  const [valueDelect, setValueDelect] = useState(totalValor); 
+  const [valueDelect, setValueDelect] = useState(totalValor);
   const getProducts = () => {
     fetch('https://lab-api-bq.herokuapp.com/products', {
       headers: {
@@ -24,15 +28,15 @@ function Cafe() {
         "Authorization": `${token}`
       },
     })
-    .then((response) => response.json())
-    .then((json) => {
-      const breakfast = json.filter(item => item.type === 'breakfast')
-      setMenu(breakfast)
-    })
+      .then((response) => response.json())
+      .then((json) => {
+        const breakfast = json.filter(item => item.type === 'breakfast')
+        setMenu(breakfast)
+      })
   }
-  
+
   const [pedidos, setPedidos] = useState([]);
-  
+
   const adicionarItem = (item) => {
     const newArray = pedidos
     newArray.push(item)
@@ -42,25 +46,25 @@ function Cafe() {
 
   const somarItens = () => {
     pedidos.forEach(item => {
-      const aux = Number(item.price)      
+      const aux = Number(item.price)
       setTotalValor(aux + totalValor)
     })
   }
 
-  const deletItem = (item, pedidos)=>{  
-    pedidos.splice(pedidos.indexOf(item),1)
+  const deletItem = (item, pedidos) => {
+    pedidos.splice(pedidos.indexOf(item), 1)
     const value = item.price
-    setValueDelect(totalValor-value)  
+    setValueDelect(totalValor - value)
     setTotalValor(totalValor - Number(item.price))
     console.log(item)
     console.log(pedidos)
     console.log(valueDelect)
   }
-  
+
   return (
     <div className="Cafe">
+      <button onClick={routerSalao} className="CafeMenuBtnBack">Início</button>
       <div className="CafeMenu">
-
         {menu && menu.map((item) => (
           <div className="divMae" key={item.name} name={item.name} id={item.id} price={item.price}>
             <h1 className="divName">{item.name}</h1>
@@ -76,8 +80,8 @@ function Cafe() {
                   id: id,
                   nome: name,
                   price: price
-                }                   
-               adicionarItem(itemPedido)
+                }
+                adicionarItem(itemPedido)
               }
             } className="btnAdc">
               Adicionar
@@ -87,24 +91,24 @@ function Cafe() {
         <div className="divPedidosBlock">
           <div className="divPedidos">
             <h1 className="divPedidosTitle">Pedido:</h1>
-            
-            {pedidos && pedidos.map((item)=>
-            <div className="divPedidosIndividuais" key={Math.random()}> 
-            <button key={Math.random()} className='btnDelet' onClick = {()=>deletItem(item,pedidos)}>X</button>           
-            <p key={Math.random()}>{item.nome}</p>
-            <p key={Math.random()}>R${item.price},00</p>            
-            </div>         
-            )}            
-           <h3>{totalValor}</h3>  
+
+            {pedidos && pedidos.map((item) =>
+              <div className="divPedidosIndividuais" key={Math.random()}>
+                <button key={Math.random()} className='btnDelet' onClick={() => deletItem(item, pedidos)}>X</button>
+                <p key={Math.random()}>{item.nome}</p>
+                <p key={Math.random()}>R${item.price},00</p>
+              </div>
+            )}
+            <h3>{totalValor}</h3>
           </div>
-          
+
           <button onClick={
             (event) => {
               console.log(pedidos)
               console.log(totalValor)
-             
+
               const objPedidos = [
-                {"pedidos": pedidos}
+                { "pedidos": pedidos }
               ]
               const objValor = [
                 totalValor,
@@ -114,12 +118,12 @@ function Cafe() {
               sessionStorage.setItem("pedidos", JSON.stringify(objPedidos));
               sessionStorage.setItem("valor", JSON.stringify(objValor));
 
-              // routerFechar()
+              routerFechar()
 
             }
           } className="btnAdc">Fechar</button>
-         
-          
+
+
         </div>
       </div>
     </div>

@@ -1,0 +1,36 @@
+*{
+  padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.Burger {
+  background-color: #FDE5C9;
+  width: 850px;
+  height: 1150px;
+  border: 3px solid #000000;
+  border-radius: 25px;
+  overflow: scroll;
+}
+
+.divMaeBurger{
+  width: 250px;
+  background-color: #6E3D1C;
+  border: 8px solid #000000;
+  border-radius: 18px;
+  line-height: 65px;
+  color: #FFFFFF;
+  font-weight: bold;
+  padding: 20px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.divNameBurger {
+  font-size: 35px;
+  text-align: center;
+  margin-bottom: 10px;
+  border-bottom: #FDE5C9 5px solid;
+}

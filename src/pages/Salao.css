@@ -36,7 +36,8 @@ html{
   align-items: center;
 }
 
-.btnSalaoRota{
+.btnSalaoRota,
+.btnSalaoPedidos {
   background-color: #6E3D1C;
   width: 302px;
   height: 70px;
@@ -46,4 +47,18 @@ html{
   color: #FFFFFF;
   margin: 30px;
   font-weight: bold;
+}
+
+.btnSalaoPedidos{
+  width: 400px;
+}
+
+.inputSalao {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputLabel {
+  display: flex;
+  flex-direction: column;
 }
