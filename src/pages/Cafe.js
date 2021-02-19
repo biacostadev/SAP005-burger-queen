@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-// import BtnClick from "../components/BtnClick";
-// import ItensPedidos from "../components/ItensPedido";
+import {useHistory} from 'react-router-dom'
 import './Cafe.css';
 
 function Cafe() {
@@ -8,6 +7,11 @@ function Cafe() {
     getProducts()
   }, [])
 
+  const history = useHistory()
+
+  const routerFechar=()=>{
+    history.push('/salao/fechar')
+  }
   
   const [menu, setMenu] = useState('');
   const [totalValor, setTotalValor] = useState(0);  
@@ -98,6 +102,19 @@ function Cafe() {
             (event) => {
               console.log(pedidos)
               console.log(totalValor)
+             
+              const objPedidos = [
+                {"pedidos": pedidos}
+              ]
+              const objValor = [
+                totalValor,
+              ]
+
+              console.log(objPedidos)
+              sessionStorage.setItem("pedidos", JSON.stringify(objPedidos));
+              sessionStorage.setItem("valor", JSON.stringify(objValor));
+
+              // routerFechar()
 
             }
           } className="btnAdc">Fechar</button>
