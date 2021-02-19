@@ -29,10 +29,6 @@ function Cadastro() {
         if(json.id !== null) {                               
           routerConfirm();
         }
-        setName('');
-        setEmail('');
-        setPassword('');
-        setRole('');
       })
   }
 
