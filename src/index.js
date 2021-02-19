@@ -10,19 +10,34 @@ import Cozinha from './pages/Cozinha';
 import Cafe from './pages/Cafe';
 import FecharPedido from './pages/FecharPedido';
 import reportWebVitals from './reportWebVitals';
-import {BrowserRouter,Switch, Route} from 'react-router-dom'
+import {BrowserRouter,Switch, Route,Redirect} from 'react-router-dom'
+import { isAuthenticated } from "./router-auth";
 
+const PrivateRoute = ({component: Component, ...rest})=>(
+  <Route 
+    {...rest} 
+    render ={props =>(
+      isAuthenticated()? (
+        <Component{...props}/>
+      ) : (
+        <Redirect to={{pathname: '/login', state:{ from: props.location}}} />
+      )
+      )      
+    }
+  />
+);
 ReactDOM.render(
   <BrowserRouter>
     <Switch>
       <Route path = "/" component={App}  exact/>
-      <Route path = "/cadastro" component={Cadastro} exact/>
       <Route path = "/login" component={Login} exact/>
+      <Route path = "/cadastro" component={Cadastro} exact/>
       <Route path = "/confirmado" component={Confirmado} exact/>
-      <Route path = "/salao" component={Salao} exact/>
-      <Route path = "/cozinha" component={Cozinha} exact/>
-      <Route path = "/salao/cafe" component={Cafe} exact/>
-      <Route path = "/salao/fechar" component={FecharPedido} exact/>
+      <PrivateRoute path = "/salao" component = {Salao} exact/>
+      <PrivateRoute path = "/cozinha" component={Cozinha} exact/>
+      <PrivateRoute path = "/salao/cafe" component={Cafe} exact/>
+      <PrivateRoute path = "/salao/fechar" component={FecharPedido} exact/>
+      
     </Switch>  
   </BrowserRouter>,
   document.getElementById('root')
