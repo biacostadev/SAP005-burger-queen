@@ -17,10 +17,31 @@ function Salao() {
     history.push('/salao/allday')
   }
 
+  const routerPronto = (e) => {
+    e.preventDefault();
+    sessionStorage.setItem("status", "pronto");
+    sessionStorage.setItem("newStatus", "entregue");
+    history.push('/alloders');
+  }
+  const routerEntregue = (e) => {
+    e.preventDefault();
+    sessionStorage.setItem("status", "entregue")
+    sessionStorage.setItem("newStatus", "geral");
+    history.push('/alloders')
+  }
+
+  const routerPending = (e) => {
+    e.preventDefault();
+    sessionStorage.setItem("status", "pending");
+    sessionStorage.setItem("newStatus", "pronto");
+    history.push('/alloders')
+  }
+
+
   const token = localStorage.getItem("token")
   const id = localStorage.getItem("id")
 
-  const [nameClient, setNameClient] = useState('');
+  const [nameClient, setNameClient] = useState([]);
   const [table, setTable] = useState('');
   const [nome, setNome] = useState('');
   const [role, setRole] = useState('');
@@ -36,21 +57,6 @@ function Salao() {
     setNome(json.name)
     setRole(json.role)
   }) 
-
-  const getPedidos = (e) => {
-    e.preventDefault();
-    fetch("https://lab-api-bq.herokuapp.com/orders",{
-    headers:{ 
-      "accept": "application/json",
-    "Authorization":`${token}`},    
-
-  })
-  .then((response) => response.json())
-  .then((json) => {  
-    const pedidos = json.filter(item => item.status === "pronto")
-    console.log(pedidos)
-  }) 
-  }
 
   const logout = (e) => {
     e.preventDefault();
@@ -82,7 +88,11 @@ function Salao() {
         </div>
       </div>
 
-      <button onClick={(e) => getPedidos(e)} className="btnSalaoPedidos">Ver Pedidos Prontos</button>
+      <button onClick={(e) => routerPronto(e)} className="btnSalaoPedidos">Ver Pedidos Prontos</button>
+      <button onClick={(e) => routerEntregue(e)} className="btnSalaoPedidos">Ver Pedidos Entregue</button>
+      <button onClick={(e) => routerPending(e)} className="btnSalaoPedidos">Ver Pedidos Pending</button>
+
+
     </div>
     )
 }

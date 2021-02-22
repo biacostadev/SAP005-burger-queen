@@ -7,12 +7,13 @@ function ChangeStatus() {
     getOrders()
   }, [])
 
+  const itemId = sessionStorage.getItem("itemId");
+  const newStatus = sessionStorage.getItem("newStatus");
+
   const history = useHistory()
-  const logout = (e) => {
+  const menu = (e) => {
     e.preventDefault();
-    localStorage.removeItem("token");
-    localStorage.removeItem("id");
-    history.push('/');
+    history.push('/alloders');
   }
 
   const token = localStorage.getItem("token");
@@ -20,35 +21,52 @@ function ChangeStatus() {
 
   const getOrders = () => {
 
-    fetch("https://lab-api-bq.herokuapp.com/orders", {
+    fetch(`https://lab-api-bq.herokuapp.com/orders/${itemId}`, {
       headers: {
         "accept": "application/json",
         "Authorization": `${token}`
       },
-  
+
     })
       .then((response) => response.json())
       .then((json) => {
-        const pedidos = json.filter(item => item.status === "pronto")
-        console.log(pedidos)
-        setOrders(pedidos)
+        const objeto = json.Products
+        setOrders(objeto)
+        console.log(orders)
       })
   }
 
-  // console.log(orders)
+  const putStatus = () => {
+    fetch(`https://lab-api-bq.herokuapp.com/orders/${itemId}`, {
+      method: "PUT",
+      headers: {
+        "accept": "application/json",
+        "Content-Type": "application/json",
+        "Authorization": `${token}`
+      },
+      body: JSON.stringify({
+        "status": newStatus
+      })
 
-
-
+    })
+      .then((response) => response.json())
+      .then((json) => {
+        console.log(json)
+      })
+  }
 
   return (
     <div className="ChangeStatus">
       <div className="SalaoHeader">
-        <button onClick={(e) => logout(e)} className="logout">Sair</button>
+        <button onClick={(e) => menu(e)} className="logout">Todos os Pedidos</button>
+
+        <div className="logout" key={Math.random()}>
         {orders && orders.map((item) => (
-          <div>
-            <h1>{item.id}</h1>
+          <p key={Math.random()}>{item.name} | {item.qtd}</p>
+          ))}
+          <button onClick={putStatus}>Atualizar</button>
           </div>
-        ))}
+
       </div>
     </div>
   )
