@@ -2,8 +2,10 @@ import React from 'react';
 import {useHistory} from 'react-router-dom'
 import './Cozinha.css';
 
-function Cozinha() {
-  const history = useHistory()
+
+function Cozinha() { 
+  
+  const history = useHistory()   
   const token = localStorage.getItem("token")
   const id = localStorage.getItem("id")
   console.log(token,id)
@@ -14,11 +16,18 @@ function Cozinha() {
     localStorage.removeItem("id");
     history.push('/');
   }
+
+  function Preparar(e) {   
+   
+    e.preventDefault();
+      history.push('/status')
+    }
+
   return (
     <div className="Cozinha">   
     <button onClick={(e) => logout(e)} className="logout">Sair</button>   
       
-      <button className="btnMenu">Preparar</button>
+      <button onClick={(e) => Preparar(e)} className="btnMenu">Preparar</button>
       <button className="btnMenu">Prontos</button>
       <button className="btnMenu">Entregues</button>
       <button className="btnMenu">Todos os Pedidos</button>
