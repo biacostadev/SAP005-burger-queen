@@ -48,7 +48,8 @@ function FecharPedido() {
       .then((json) => {
         console.log(json)
         routerSalao()
-
+        sessionStorage.removeItem("pedidos")
+        sessionStorage.removeItem("valor")
       })
   }
 

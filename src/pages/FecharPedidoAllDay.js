@@ -48,6 +48,8 @@ function FecharPedidoAllDay() {
       .then((response) => response.json())
       .then((json) => {
         console.log(json)
+        sessionStorage.removeItem("pedidos")
+        sessionStorage.removeItem("valor")
         routerSalao()
       })
   }

@@ -12,6 +12,8 @@ function Salao() {
   }
 
   const routerAllDay=()=>{
+    sessionStorage.setItem("nameCliente", nameClient)
+    sessionStorage.setItem("table", table)
     history.push('/salao/allday')
   }
 
