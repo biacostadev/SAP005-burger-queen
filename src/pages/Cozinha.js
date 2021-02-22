@@ -8,7 +8,6 @@ function Cozinha() {
   const history = useHistory()   
   const token = localStorage.getItem("token")
   const id = localStorage.getItem("id")
-  console.log(token,id)
 
   const logout = (e) => {
     e.preventDefault();
@@ -18,10 +17,12 @@ function Cozinha() {
   }
 
   function Preparar(e) {   
-   
-    e.preventDefault();
-      history.push('/status')
+      e.preventDefault();
+      sessionStorage.setItem("status", "pending");
+      sessionStorage.setItem("newStatus", "pronto");
+      history.push('/status/cozinha')
     }
+    
 
   return (
     <div className="Cozinha">   
