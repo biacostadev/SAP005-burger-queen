@@ -29,13 +29,21 @@ function Burger() {
   }
 
   const getData = () => {
-    const getData = JSON.parse(sessionStorage.getItem("pedidos"))
-    const itemPedido = getData[0].pedidos
-    console.log(itemPedido)
-    setPedidos(itemPedido)
-    const getValue = JSON.parse(sessionStorage.getItem("valor"))
-    const valuePedido = getValue[0]
-    setTotalValor(valuePedido)
+    const dataPedido = sessionStorage.getItem("pedidos")
+    if(dataPedido) {
+      const getData = JSON.parse(sessionStorage.getItem("pedidos"))
+      console.log(getData)
+      const itemPedido = getData[0].pedidos
+      console.log(itemPedido)
+      setPedidos(itemPedido)
+    }
+
+    const dataValor = sessionStorage.getItem("valor")
+    if(dataValor) {
+      const getValue = JSON.parse(sessionStorage.getItem("valor"))
+      const valuePedido = getValue[0]
+      setTotalValor(valuePedido)
+    }
   }
 
   const [menu, setMenu] = useState('');
