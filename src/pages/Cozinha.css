@@ -5,8 +5,9 @@
   border: 3px solid #000000;
   border-radius: 25px;
   display: flex;
-  justify-content: center;
   align-items: center;
+  flex-direction: column;
+ 
 }
 
 .CozinhaTitle {
@@ -14,9 +15,8 @@
   line-height: 53px;
 }
 
-.logout {
-  background-color: #6E3D1C;
-  width: 302px;
+.logout, .btnMenu {
+  background-color: #6E3D1C;  
   height: 70px;
   border: 8px solid #000000;
   border-radius: 18px;
@@ -24,4 +24,13 @@
   color: #FFFFFF;
   margin: 30px;
   font-weight: bold;
+}
+.logout{
+  width: 134px;
+  margin: 5% 0 30% 30%;  
+}
+
+.btnMenu{
+  width: 400px;
+
 }

@@ -15,10 +15,16 @@ function Cozinha() {
     history.push('/');
   }
   return (
-    <div className="Cozinha">
-      <button onClick={(e) => logout(e)} className="logout">Sair</button>
-      <h1 className="CozinhaTitle">Página cozinha</h1>
+    <div className="Cozinha">   
+    <button onClick={(e) => logout(e)} className="logout">Sair</button>   
+      
+      <button className="btnMenu">Preparar</button>
+      <button className="btnMenu">Prontos</button>
+      <button className="btnMenu">Entregues</button>
+      <button className="btnMenu">Todos os Pedidos</button>
+       
     </div>
+    
   );
 }
 export default Cozinha;
