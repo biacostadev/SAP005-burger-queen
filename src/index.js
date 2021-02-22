@@ -13,6 +13,7 @@ import Burger from './pages/Burger';
 import DrinksSide from './pages/DrinksSide';
 import FecharPedido from './pages/FecharPedido';
 import FecharPedidoAllDay from './pages/FecharPedidoAllDay';
+import ChangeStatus from './pages/ChangeStatus';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter,Switch, Route,Redirect} from 'react-router-dom'
 import { isAuthenticated } from "./router-auth";
@@ -45,6 +46,7 @@ ReactDOM.render(
       <PrivateRoute path = "/salao/drinksside" component={DrinksSide} exact/>
       <PrivateRoute path = "/salao/fechar" component={FecharPedido} exact/>
       <PrivateRoute path = "/salao/fecharallday" component={FecharPedidoAllDay} exact/>
+      <PrivateRoute path = "/status" component={ChangeStatus} exact/>
     </Switch>  
   </BrowserRouter>,
   document.getElementById('root')
