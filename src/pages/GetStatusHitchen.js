@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom'
-import './GetAllOrders.css';
 
-function GetAllOrders() {
+
+function GetStatusHitchen() {
   useEffect(() => {
     getOrders()
   }, [])
@@ -12,7 +12,7 @@ function GetAllOrders() {
   const history = useHistory()
   const menu = (e) => {
     e.preventDefault();
-    history.push('/salao');
+    history.push('/cozinha');
   }
 
   const routerStatus = () => {
@@ -32,65 +32,13 @@ function GetAllOrders() {
     })
       .then((response) => response.json())
       .then((json) => {
-        const order = json.filter(item => item.status === status)
+        const order = json.filter(item => item.status === "pending")
         setOrders(order)
-       
       })
 
 
   }
-
-  // console.log(orders.Products)
-
-  // orders && orders.map((prod) => (
-
-  //   console.log(prod.Products.map((item) => (
-  //     item.name
-  //   )))
-  // )
-
-  // )
-
-  const [products, setProducts] = useState([]);
-
-
-  //   const teste = () => {
-  //     orders && orders.map((item) => {
-  //       const prod = item.Products
-  //       const nomeCliente = item.client_name;
-  //       const newArray = products
-  //       // newArray.push(nomeCliente)
-  //       // console.log(objeto)
-
-  //       prod.map((prodItens) => {
-  //         const objeto = {
-  //           nomeCliente: nomeCliente,
-  //           nome: prodItens.name,
-  //           qtd: prodItens.qtd
-  //         }
-
-  //         newArray.push(objeto)
-
-  //         console.log(products)
-  //       })
-
-  //   })
-  // }
-
-
-
-
-  // prod && prod.map((item) => (
-  //   console.log(item)
-  // ))
-
-  // console.log(prod.Products)
-
-
-
-  // console.log(teste)
-
-
+  
   return (
     <div className="GetAllOrders">
       <div className="SalaoHeader">
@@ -104,11 +52,10 @@ function GetAllOrders() {
             <p key={Math.random()}>{item.client_name}</p>
             <p key={Math.random()}>{item.id}</p>
             <p key={Math.random()}>{item.createdAt}</p>
+            
           </div>
+          
         ))}
-
-        {/* <p>{teste()}</p> */}
-
 
       </div>
     </div>
@@ -116,4 +63,4 @@ function GetAllOrders() {
 }
 
 
-export default GetAllOrders;
+export default GetStatusHitchen;

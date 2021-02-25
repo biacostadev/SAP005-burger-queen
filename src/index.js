@@ -15,6 +15,7 @@ import FecharPedido from './pages/FecharPedido';
 import FecharPedidoAllDay from './pages/FecharPedidoAllDay';
 import ChangeStatus from './pages/ChangeStatus';
 import GetAllOrders from './pages/GetAllOrders';
+import GetStatusHitchen from './pages/GetStatusHitchen';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter,Switch, Route,Redirect} from 'react-router-dom'
 import { isAuthenticated } from "./router-auth";
@@ -47,6 +48,7 @@ ReactDOM.render(
       <PrivateRoute path = "/salao/drinksside" component={DrinksSide} exact/>
       <PrivateRoute path = "/salao/fechar" component={FecharPedido} exact/>
       <PrivateRoute path = "/salao/fecharallday" component={FecharPedidoAllDay} exact/>
+      <PrivateRoute path = "/status/cozinha" component={GetStatusHitchen} exact/>
       <PrivateRoute path = "/status" component={ChangeStatus} exact/>
       <PrivateRoute path = "/alloders" component={GetAllOrders} exact/>
     </Switch>  
