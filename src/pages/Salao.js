@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Button from '../components/Button'
+import InputTxt from '../components/InputTxt';
 import { useHistory } from 'react-router-dom'
 import './Salao.css';
 
@@ -89,13 +90,33 @@ function Salao() {
       </div>
       <div className="inputSalao">
         <div className="inputLabel">
-          <label className="cadLabel" htmlFor="cadInputEmail">Cliente:</label>
-          <input type="text" placeholder="Cliente" className="cadInput" value={nameClient} onChange={(event) => setNameClient(event.target.value)} />
+          <InputTxt
+            inputType= "text"
+            inputPlaceholder="Cliente"
+            inputValue={nameClient}
+            inputOnChange={(event) => setNameClient(event.target.value)}
+            inputLabelHtmlFor="cadInputEmail"
+            inputLabelText="Cliente:"
+            inputLabelClassName="cadLabel"
+            inputClassName="cadInput"
+          />
+          {/* <label className="cadLabel" htmlFor="cadInputEmail">Cliente:</label>
+          <input type="text" placeholder="Cliente" className="cadInput" value={nameClient} onChange={(event) => setNameClient(event.target.value)} /> */}
         </div>
 
         <div className="inputLabel">
-          <label className="cadLabel" htmlFor="cadInputEmail">Mesa:</label>
-          <input type="number" placeholder="Mesa" className="cadInput" value={table} onChange={(event) => setTable(event.target.value)} />
+        <InputTxt
+            inputType= "number"
+            inputPlaceholder="Mesa"
+            inputValue={table}
+            inputOnChange={(event) => setTable(event.target.value)}
+            inputLabelHtmlFor="cadInputEmail"
+            inputLabelText="Mesa:"
+            inputLabelClassName="cadLabel"
+            inputClassName="cadInput"
+          />
+          {/* <label className="cadLabel" htmlFor="cadInputEmail">Mesa:</label>
+          <input type="number" placeholder="Mesa" className="cadInput" value={table} onChange={(event) => setTable(event.target.value)} /> */}
         </div>
       </div>
 
