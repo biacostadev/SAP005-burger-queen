@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from '../components/Button';
 import { useHistory } from 'react-router-dom'
 import './Cozinha.css';
 
@@ -27,11 +28,15 @@ function Cozinha() {
   return (
     <div className="Cozinha">
       <button onClick={(e) => logout(e)} className="logout">Sair</button>
+      <Button
+        buttonOnClick={(e) => Preparar(e)}
+        buttonText="Preparar"
+      />
 
-      <button onClick={(e) => Preparar(e)} className="btnMenu">Preparar</button>
+      {/* <button onClick={(e) => Preparar(e)} className="btnMenu">Preparar</button>
       <button className="btnMenu">Prontos</button>
       <button className="btnMenu">Entregues</button>
-      <button className="btnMenu">Todos os Pedidos</button>
+      <button className="btnMenu">Todos os Pedidos</button> */}
 
     </div>
 
