@@ -58,7 +58,7 @@ function ChangeStatus() {
   return (
     <div className="ChangeStatus">
       <div className="SalaoHeader">
-        <button onClick={(e) => menu(e)} className="logout">Todos os Pedidos</button>
+        <button onClick={(e) => menu(e)} className="logout">Lista de pedidos para fazer</button>
 
         <div className="logout" key={Math.random()}>
         {orders && orders.map((item) => (
