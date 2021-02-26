@@ -8,11 +8,12 @@ function GetAllOrders() {
   }, [])
 
   const status = sessionStorage.getItem("status");
+  const back = sessionStorage.getItem("back");
 
   const history = useHistory()
   const menu = (e) => {
     e.preventDefault();
-    history.push('/salao');
+    history.push(`/${back}`);
   }
 
   const routerStatus = () => {
@@ -34,62 +35,11 @@ function GetAllOrders() {
       .then((json) => {
         const order = json.filter(item => item.status === status)
         setOrders(order)
-       
+        console.log(order)
       })
 
 
   }
-
-  // console.log(orders.Products)
-
-  // orders && orders.map((prod) => (
-
-  //   console.log(prod.Products.map((item) => (
-  //     item.name
-  //   )))
-  // )
-
-  // )
-
-  const [products, setProducts] = useState([]);
-
-
-  //   const teste = () => {
-  //     orders && orders.map((item) => {
-  //       const prod = item.Products
-  //       const nomeCliente = item.client_name;
-  //       const newArray = products
-  //       // newArray.push(nomeCliente)
-  //       // console.log(objeto)
-
-  //       prod.map((prodItens) => {
-  //         const objeto = {
-  //           nomeCliente: nomeCliente,
-  //           nome: prodItens.name,
-  //           qtd: prodItens.qtd
-  //         }
-
-  //         newArray.push(objeto)
-
-  //         console.log(products)
-  //       })
-
-  //   })
-  // }
-
-
-
-
-  // prod && prod.map((item) => (
-  //   console.log(item)
-  // ))
-
-  // console.log(prod.Products)
-
-
-
-  // console.log(teste)
-
 
   return (
     <div className="GetAllOrders">
