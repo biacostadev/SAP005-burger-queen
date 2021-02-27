@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom'
+import Button from '../components/Button'
+import TemplateChangeStatus from '../components/TemplateChangeStatus'
 import './ChangeStatus.css';
 
 function ChangeStatus() {
@@ -17,6 +19,12 @@ function ChangeStatus() {
   }
 
   const token = localStorage.getItem("token");
+  const back = sessionStorage.getItem("back");
+
+  const finishChange = () => {
+    history.push(`/${back}`);
+  }
+
   const [orders, setOrders] = useState('');
 
   const getOrders = () => {
@@ -52,20 +60,32 @@ function ChangeStatus() {
       .then((response) => response.json())
       .then((json) => {
         console.log(json)
+        finishChange()
       })
   }
 
   return (
     <div className="ChangeStatus">
       <div className="SalaoHeader">
-        <button onClick={(e) => menu(e)} className="logout">Lista de pedidos para fazer</button>
+        <Button
+          buttonOnClick={(e) => menu(e)}
+          buttonText="Lista de pedidos para fazer"
+        />
 
-        <div className="logout" key={Math.random()}>
-        {orders && orders.map((item) => (
-          <p key={Math.random()}>{item.name} | {item.qtd}</p>
+        <div key={Math.random()}>
+          {orders && orders.map((item) => (
+            <TemplateChangeStatus
+              itemKey={Math.random()}
+              itemName={item.name}
+              itemQtd={item.qtd}
+            />
           ))}
-          <button onClick={putStatus}>Atualizar</button>
-          </div>
+
+          <Button
+            buttonOnClick={putStatus}
+            buttonText="Atualizar"
+          />
+        </div>
 
       </div>
     </div>

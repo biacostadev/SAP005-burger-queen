@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom'
+import TemplateItem from '../components/TemplateItem'
+import TemplateCommand from '../components/TemplateCommand'
+import Button from '../components/Button'
 import './DrinksSide.css';
 
 function DrinksSide() {
@@ -96,7 +99,7 @@ function DrinksSide() {
     console.log(valueDelect)
   }
 
-  const fazendoPedido = (e) => {
+  const addItemToCommand = (e) => {
     e.preventDefault();
     const parent = e.target.parentNode;
     const complement = parent.getAttribute('complement');
@@ -141,32 +144,44 @@ function DrinksSide() {
       <h2>{type}</h2>
       <div className="CafeMenu">
         {menu && menu.map((item) => (
-          <div className="divMaeDrinksSide" key={Math.random()} name={item.name} flavor={item.flavor} complement={item.complement} id={item.id} price={item.price}>
-            <h1 className="divName">{item.name}</h1>
-            <h1 className="divPrice">R$ {item.price},00</h1>
-            <button onClick={(e) => fazendoPedido(e)} className="btnAdc">
-              Adicionar
-        </button>
-          </div>
+          <TemplateItem
+          divClassName="divMae"
+          divKey={Math.random()}
+          divName={item.name}
+          divId={item.id}
+          divPrice={item.price}
+          divOnClick={addItemToCommand}
+          itemName={item.name}
+          itemPrice={item.price}
+          itemNameKey={Math.random()}
+          itemPriceKey={Math.random()}
+        />
         ))}
         <div className="divPedidosBlock">
           <div className="divPedidos">
             <h1 className="divPedidosTitle">Pedido:</h1>
 
             {pedidos && pedidos.map((item) =>
-              <div className="divPedidosIndividuais" key={Math.random()}>
-                <button key={Math.random()} className='btnDelet' onClick={() => deletItem(item, pedidos)}>X</button>
-                <p key={Math.random()}>{item.nome}</p>
-                <p key={Math.random()}>{item.flavor}</p>
-                <p key={Math.random()}>{item.complement}</p>
-                <p key={Math.random()}>R${item.price},00</p>
-              </div>
+              <TemplateCommand
+              divClassName="divPedidosIndividuais"
+              divKey={Math.random()}
+              btnKey={Math.random()}
+              btnClassName="btnDelet"
+              btnOnClick={() => deletItem(item, pedidos)}
+              btnText="X"
+              itemName={item.nome}
+              itemPrice={item.price}
+              itemNameKey={Math.random()}
+              itemPriceKey={Math.random()}
+            />
             )}
             <h3>{totalValor}</h3>
           </div>
 
-          <button onClick={(e) => setFinalPedido(e)} className="btnAdc">Fechar</button>
-
+          <Button
+          buttonOnClick={(e) => setFinalPedido(e)}
+          buttonText="Ver Resumo"
+          />
 
         </div>
       </div>

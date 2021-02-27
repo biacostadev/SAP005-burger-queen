@@ -1,5 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom'
+import Button from '../components/Button'
 import './Cafe.css';
 
 function AllDay() {
@@ -27,30 +28,40 @@ function AllDay() {
 
   return (
     <div className="Cafe">
-      <button onClick={routerSalao} className="CafeMenuBtnBack">Início</button>
+      <Button
+        buttonOnClick={routerSalao}
+        buttonText="Início"
+      />
 
       <div className="CafeMenu">
+        <div name="Hambúrguer simples">
+          <Button
+            buttonOnClick={(e) => { routerBurger(e) }}
+            buttonText="Hambúrguer simples"
+          />
+        </div>
 
-        <div className="divMae" name="Hambúrguer simples">
-          <button onClick={(e) => {routerBurger(e)}} className="btnAdc">
-            Hambúrguer simples
-        </button>
+        <div name="Hambúrguer duplo">
+          <Button
+            buttonOnClick={(e) => { routerBurger(e) }}
+            buttonText="Hambúrguer duplo"
+          />
         </div>
-        <div className="divMae" name="Hambúrguer duplo">
-          <button onClick={routerBurger} className="btnAdc">
-            Hambúrguer duplo
-        </button>
+
+        <div name="side">
+          <Button
+            buttonOnClick={(e) => { routerDrinksSide(e) }}
+            buttonText="Adicionais"
+          />
         </div>
-        <div className="divMae" name="side">
-          <button onClick={routerDrinksSide} className="btnAdc">
-            Adicionais
-        </button>
+
+        <div name="drinks">
+          <Button
+            buttonOnClick={(e) => { routerDrinksSide(e) }}
+            buttonText="Bebidas"
+          />
         </div>
-        <div className="divMae" name="drinks">
-          <button onClick={routerDrinksSide} className="btnAdc">
-            Bebidas
-        </button>
-        </div>
+
       </div>
     </div>
   );

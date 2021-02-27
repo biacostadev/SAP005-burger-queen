@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom'
+import TemplateItemBurger from '../components/TemplateItemBurger'
+import TemplateCommandBurger from '../components/TemplateCommandBurger'
+import Button from '../components/Button'
 import './Burger.css';
 
 function Burger() {
@@ -30,7 +33,7 @@ function Burger() {
 
   const getData = () => {
     const dataPedido = sessionStorage.getItem("pedidos")
-    if(dataPedido) {
+    if (dataPedido) {
       const getData = JSON.parse(sessionStorage.getItem("pedidos"))
       console.log(getData)
       const itemPedido = getData[0].pedidos
@@ -39,7 +42,7 @@ function Burger() {
     }
 
     const dataValor = sessionStorage.getItem("valor")
-    if(dataValor) {
+    if (dataValor) {
       const getValue = JSON.parse(sessionStorage.getItem("valor"))
       const valuePedido = getValue[0]
       setTotalValor(valuePedido)
@@ -119,20 +122,20 @@ function Burger() {
   const setFinalPedido = (e) => {
     e.preventDefault();
     console.log(pedidos)
-              console.log(totalValor)
+    console.log(totalValor)
 
-              const objPedidos = [
-                { "pedidos": pedidos }
-              ]
-              const objValor = [
-                totalValor,
-              ]
+    const objPedidos = [
+      { "pedidos": pedidos }
+    ]
+    const objValor = [
+      totalValor,
+    ]
 
-              console.log(objPedidos)
-              sessionStorage.setItem("pedidos", JSON.stringify(objPedidos));
-              sessionStorage.setItem("valor", JSON.stringify(objValor));
+    console.log(objPedidos)
+    sessionStorage.setItem("pedidos", JSON.stringify(objPedidos));
+    sessionStorage.setItem("valor", JSON.stringify(objValor));
 
-              routerFechar()
+    routerFechar()
   }
 
   return (
@@ -141,33 +144,49 @@ function Burger() {
       <h2>{name}</h2>
       <div className="CafeMenu">
         {menu && menu.map((item) => (
-          <div className="divMaeBurger" key={Math.random()} name={item.name} flavor={item.flavor} complement={item.complement} id={item.id} price={item.price}>
-            <h1 className="divNameBurger">{item.flavor}</h1>
-            <h1 className="divName">{item.complement}</h1>
-            <h1 className="divPrice">R$ {item.price},00</h1>
-            <button onClick={(e) => fazendoPedido(e)} className="btnAdc">
-              Adicionar
-        </button>
-          </div>
+          <TemplateItemBurger
+            divClassName="divMaeBurger"
+            divKey={Math.random()}
+            divName={item.name}
+            divFlavor={item.flavor}
+            divComplement={item.complement}
+            divId={item.id}
+            divPrice={item.price}
+            divOnClick={(e) => fazendoPedido(e)}
+            itemFlavor={item.flavor}
+            itemComplement={item.complement}
+            itemPrice={item.price}
+          />
         ))}
         <div className="divPedidosBlock">
           <div className="divPedidos">
             <h1 className="divPedidosTitle">Pedido:</h1>
 
             {pedidos && pedidos.map((item) =>
-              <div className="divPedidosIndividuais" key={Math.random()}>
-                <button key={Math.random()} className='btnDelet' onClick={() => deletItem(item, pedidos)}>X</button>
-                <p key={Math.random()}>{item.nome}</p>
-                <p key={Math.random()}>{item.flavor}</p>
-                <p key={Math.random()}>{item.complement}</p>
-                <p key={Math.random()}>R${item.price},00</p>
-              </div>
+              <TemplateCommandBurger
+              divClassName="divPedidosIndividuais"
+              divKey={Math.random()}
+              btnKey={Math.random()}
+              btnClassName='btnDelet'
+              btnOnClick={() => deletItem(item, pedidos)}
+              btnText="X"
+              itemName={item.nome}
+              itemNameKey={Math.random()}
+              itemFlavor={item.flavor}
+              itemFlavorKey={Math.random()}
+              itemComplement={item.complement}
+              itemComplementKey={Math.random()}
+              itemPrice={item.price}
+              itemPriceKey={Math.random()}
+              />
             )}
             <h3>{totalValor}</h3>
           </div>
-
-          <button onClick={(e) => setFinalPedido(e)} className="btnAdc">Fechar</button>
-
+          
+          <Button
+          buttonOnClick={(e) => setFinalPedido(e)}
+          buttonText="Ver Resumo"
+          />
         </div>
       </div>
     </div>

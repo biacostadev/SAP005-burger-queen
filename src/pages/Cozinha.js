@@ -25,19 +25,28 @@ function Cozinha() {
     history.push('/alloders')
   }
 
+  const routerAllOrders = (e) => {
+    e.preventDefault();
+    sessionStorage.removeItem("status");
+    sessionStorage.removeItem("newStatus");
+    sessionStorage.setItem("back", "cozinha");
+    history.push('/alloders')
+  }
+
   return (
     <div className="Cozinha">
-      <button onClick={(e) => logout(e)} className="logout">Sair</button>
+      <Button
+        buttonOnClick={(e) => logout(e)}
+        buttonText="Sair"
+      />
       <Button
         buttonOnClick={(e) => Preparar(e)}
         buttonText="Preparar"
       />
-
-      {/* <button onClick={(e) => Preparar(e)} className="btnMenu">Preparar</button>
-      <button className="btnMenu">Prontos</button>
-      <button className="btnMenu">Entregues</button>
-      <button className="btnMenu">Todos os Pedidos</button> */}
-
+      <Button
+        buttonOnClick={(e) => routerAllOrders(e)}
+        buttonText="Todos os Pedidos"
+      />
     </div>
 
   );

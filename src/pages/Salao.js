@@ -42,6 +42,14 @@ function Salao() {
     history.push('/alloders')
   }
 
+  const routerAllOrders = (e) => {
+    e.preventDefault();
+    sessionStorage.removeItem("status");
+    sessionStorage.removeItem("newStatus");
+    sessionStorage.setItem("back", "salao");
+    history.push('/alloders')
+  }
+
 
   const token = localStorage.getItem("token")
   const id = localStorage.getItem("id")
@@ -75,7 +83,10 @@ function Salao() {
     <div className="Salao">
       <div className="SalaoHeader">
         <h1>{nome} - {role}</h1>
-        <button onClick={(e) => logout(e)} className="logout">Sair</button>
+        <Button
+          buttonOnClick={(e) => logout(e)}
+          buttonText="Sair"
+        />
       </div>
       <h1 className="messageSelect">Selecione o Período:</h1>
       <div className="btnSalao">
@@ -95,13 +106,11 @@ function Salao() {
             inputPlaceholder="Cliente"
             inputValue={nameClient}
             inputOnChange={(event) => setNameClient(event.target.value)}
-            inputLabelHtmlFor="cadInputEmail"
-            inputLabelText="Cliente:"
-            inputLabelClassName="cadLabel"
+            labelHtmlFor="cadInputEmail"
+            labelText="Cliente:"
+            labelClassName="cadLabel"
             inputClassName="cadInput"
           />
-          {/* <label className="cadLabel" htmlFor="cadInputEmail">Cliente:</label>
-          <input type="text" placeholder="Cliente" className="cadInput" value={nameClient} onChange={(event) => setNameClient(event.target.value)} /> */}
         </div>
 
         <div className="inputLabel">
@@ -110,13 +119,11 @@ function Salao() {
             inputPlaceholder="Mesa"
             inputValue={table}
             inputOnChange={(event) => setTable(event.target.value)}
-            inputLabelHtmlFor="cadInputEmail"
-            inputLabelText="Mesa:"
-            inputLabelClassName="cadLabel"
+            labelHtmlFor="cadInputEmail"
+            labelText="Mesa:"
+            labelClassName="cadLabel"
             inputClassName="cadInput"
           />
-          {/* <label className="cadLabel" htmlFor="cadInputEmail">Mesa:</label>
-          <input type="number" placeholder="Mesa" className="cadInput" value={table} onChange={(event) => setTable(event.target.value)} /> */}
         </div>
       </div>
 
@@ -131,6 +138,10 @@ function Salao() {
       <Button
         buttonOnClick={(e) => routerPending(e)}
         buttonText="Ver Pedidos Pending"
+      />
+      <Button
+        buttonOnClick={(e) => routerAllOrders(e)}
+        buttonText="Todos os Pedidos"
       />
 
     </div>

@@ -6,14 +6,14 @@ function InputTxt({
   inputValue,
   inputOnChange,
   inputClassName,
-  inputLabelClassName,
-  inputLabelHtmlFor,
-  inputLabelText
+  labelClassName,
+  labelHtmlFor,
+  labelText
 }) {
 
   return (
     <>
-      <label className={inputLabelClassName} htmlFor={inputLabelHtmlFor}>{inputLabelText}</label>
+      <label className={labelClassName} htmlFor={labelHtmlFor}>{labelText}</label>
       <input type={inputType} placeholder={inputPlaceholder} value={inputValue} onChange={inputOnChange} className={inputClassName}/>
     </>
   )

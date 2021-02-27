@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
-import {useHistory} from 'react-router-dom'
+import InputTxt from '../components/InputTxt';
+import Select from '../components/Select';
+import Button from '../components/Button';
+import { useHistory } from 'react-router-dom'
 import './Cadastro.css';
 
 function Cadastro() {
   const history = useHistory()
 
-  const routerConfirm = ()=>{
+  const routerConfirm = () => {
     history.push('/confirmado')
   }
 
@@ -25,8 +28,8 @@ function Cadastro() {
       body: `email=${email}&password=${password}&role=${role}&restaurant=BurgerHunger&name=${name}`
     })
       .then((response) => response.json())
-      .then((json) => {           
-        if(json.id !== null) {                               
+      .then((json) => {
+        if (json.id !== null) {
           routerConfirm();
         }
       })
@@ -36,22 +39,62 @@ function Cadastro() {
     <div className="Cadastro">
       <h1 className="CadTitle">Cadastro</h1>
       <form className="FormCadastro">
-        <label className="cadLabel" htmlFor="cadInputName">Nome:</label>
-        <input type="text" placeholder="Nome" className="cadInput" value={name} onChange={(event) => setName(event.target.value)} />
+        <InputTxt
+          inputType="text"
+          inputPlaceholder="Nome"
+          inputValue={name}
+          inputOnChange={(event) => setName(event.target.value)}
+          labelHtmlFor="cadInputName"
+          labelText="Nome:"
+          labelClassName="cadLabel"
+          inputClassName="cadInput"
+        />
 
-        <label className="cadLabel" htmlFor="cadInputEmail">E-mail:</label>
-        <input type="text" placeholder="E-mail" className="cadInput" value={email} onChange={(event) => setEmail(event.target.value)} />
+        <InputTxt
+          inputType="text"
+          inputPlaceholder="E-mail"
+          inputValue={email}
+          inputOnChange={(event) => setEmail(event.target.value)}
+          labelHtmlFor="cadInputEmail"
+          labelText="E-mail:"
+          labelClassName="cadLabel"
+          inputClassName="cadInput"
+        />
 
-        <label className="cadLabel" htmlFor="cadInputPassword">Senha:</label>
-        <input type="password" placeholder="Senha" className="cadInput" value={password} onChange={(event) => setPassword(event.target.value)} />
+        <InputTxt
+          inputType="password"
+          inputPlaceholder="Senha"
+          inputValue={password}
+          inputOnChange={(event) => setPassword(event.target.value)}
+          labelHtmlFor="cadInputPassword"
+          labelText="Senha:"
+          labelClassName="cadLabel"
+          inputClassName="cadInput"
+        />
 
-        <label className="cadLabel" htmlFor="cadInputRole">Cargo:</label>
-        <select name="ordenar" className="cadInput cardSelect" value={role} onChange={(event) => setRole(event.target.value)}>
-          <option  className="cadInputOption" disabled value=''>Cargo</option>
-          <option className="cadInputOption" value="salao">Garçom</option>
-          <option className="cadInputOption" value="cozinha">Cozinheiro</option>
-        </select>
-        <button className="cadBtn" onClick={(e) => postCad(e)}>Cadastrar</button>
+        <Select
+          selectName="ordenar"
+          selectValue={role}
+          selectOnChange={(event) => setRole(event.target.value)}
+          selectClassName="cadInput cardSelect"
+          optionValue1=''
+          optionValue2="salao"
+          optionValue3="cozinha"
+          optionText1="Cargo"
+          optionText2="Garçom"
+          optionText3="Cozinheiro"
+          optionClassName="cadInputOption"
+          optionDisabled
+          labelClassName="cadLabel"
+          labelHtmlFor="cadInputRole"
+          labelText="Cargo:"
+        />
+
+        <Button
+          buttonOnClick={(e) => postCad(e)}
+          buttonText="Cadastrar"
+        />
+        
       </form>
     </div>
   );
