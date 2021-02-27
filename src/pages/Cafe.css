@@ -5,22 +5,28 @@
 }
 
 .Cafe {
-  background-color: #FDE5C9;
+  background-color: #FEDBB0;
   width: 850px;
   height: 1150px;
   border: 3px solid #000000;
   border-radius: 25px;
+}
+.divPedidosBlock{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
 }
 
 .CafeMenuBtnBack {
   background-color: #6E3D1C;
   width: 200px;
   height: 70px;
-  border: 8px solid #000000;
+  border: 8px solid #483F3F;
   border-radius: 18px;
   font-size: 35px; 
   color: #FFFFFF;
-  margin: 30px 0 0 30px;
+  margin: 30px 0 0 20px;
   font-weight: bold;
 }
 
@@ -33,9 +39,10 @@
 }
 
 .divMae {
-  width: 45%;
+  width: 400px;
+  height: 250px;
   background-color: #6E3D1C;
-  border: 8px solid #000000;
+  border: 8px solid #483F3F;
   border-radius: 18px;
   line-height: 65px;
   color: #FFFFFF;
@@ -68,6 +75,7 @@
   width: 800px;
   height: 350px;
   font-size: 40px;
+  border-radius: 18px;
   padding: 20px;
   overflow: scroll;
   background-color: #d1d1d1;
@@ -86,5 +94,12 @@
   border-bottom: 2px #1c1c1c solid;
 }
 .btnDelet{
-  width: 30px;
+  width: 40px;
+  border-radius: 10px;
+  border: 1px solid #483F3F;
+  background-color: #FDE5C9;
+  font-size: 2rem;
+}
+.totalValue{
+  margin-left: 62%;
 }

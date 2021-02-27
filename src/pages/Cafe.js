@@ -149,7 +149,7 @@ function Cafe() {
                 itemPriceKey={Math.random()}
               />
             )}
-            <h3>{totalValor}</h3>
+            <h3 className="totalValue">Total : {totalValor},00</h3>
           </div>
           
           <Button
