@@ -1,5 +1,6 @@
 import React from 'react';
 import Logo from './logo.png';
+import Button from './components/Button'
 import './App.css';
 import {useHistory} from 'react-router-dom'
 
@@ -17,9 +18,14 @@ function App() {
     <div className="AppInit">
       <img src={Logo} className="logo" alt="logo Burger Hunger"/>
       <nav className="nav">
-        <button className="btnCad" onClick={routerLogin}>Login</button>
-        <button className="btnCad" onClick={routerRegister}>Cadastrar</button>        
-        
+        <Button
+        buttonOnClick={routerLogin}
+        buttonText="Login"
+        />
+        <Button
+        buttonOnClick={routerRegister}
+        buttonText="Cadastrar"
+        />        
       </nav>
     </div>
   );

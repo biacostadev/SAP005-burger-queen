@@ -1,5 +1,8 @@
 import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom'
+import Button from '../components/Button'
+import TemplateOrderVolume from '../components/TemplateOrderVolume'
+import TemplateValueOrder from '../components/TemplateValueOrder'
 import './FecharPedido.css';
 
 function FecharPedido() {
@@ -8,6 +11,11 @@ function FecharPedido() {
   const routerSalao = () => {
     history.push('/salao')
   }
+
+  const routerCoffe = () => {
+    history.push('/salao/cafe')
+  }
+
   const getValue = JSON.parse(sessionStorage.getItem("valor"))
   const valuePedido = getValue[0]
   console.log(valuePedido)
@@ -23,7 +31,7 @@ function FecharPedido() {
 
   function postItems(e) {
     e.preventDefault();
-    
+
     fetch('https://lab-api-bq.herokuapp.com/orders', {
       method: "POST",
       headers: {
@@ -34,14 +42,14 @@ function FecharPedido() {
       body: JSON.stringify({
         "client": nameClient,
         "table": table,
-        "products": 
+        "products":
           itemPedido.map((item) => (
             {
               "id": Number(item.id),
               "qtd": 1
             }
           ))
-        
+
       })
     })
       .then((response) => response.json())
@@ -56,18 +64,32 @@ function FecharPedido() {
   return (
     <>
       <div className="FecharPedido">
-        <h1 className="FecharPedidoTitle">Fechar Pedido</h1>
+        <Button
+          buttonOnClick={routerCoffe}
+          buttonText="Voltar"
+        />
+        <h1 className="FecharPedidoTitle">Resumo do Pedido</h1>
         {itemPedido && itemPedido.map((item) => (
-          <div key={Math.random()} id={item.id} className="FecharPedidoItem">
-            <p key={Math.random()} className="FecharPedidoName">{item.nome}</p>
-            <p key={Math.random()} className="FecharPedidoPrice">R${item.price},00</p>
-          </div>
+          <TemplateOrderVolume
+            divClassName="FecharPedidoItem"
+            divKey={Math.random()}
+            divId={item.id}
+            itemName={item.nome}
+            itemPrice={item.price}
+            itemNameKey={Math.random()}
+            itemPriceKey={Math.random()}
+          />
         ))}
-        <div className="FecharPedidoItem">
-          <p className="FecharPedidoTotal">Total:</p>
-          <p className="FecharPedidoTotal">R$ {valuePedido},00</p>
-        </div>
-        <button onClick={(e) => postItems(e)} className="FecharPedidoBtn">Enviar pedido</button>
+        <TemplateValueOrder
+          divClassName="FecharPedidoItem"
+          valueText="Total:"
+          valueClassName="FecharPedidoTotal"
+          valuePrice={valuePedido}
+        />
+        <Button
+          buttonOnClick={(e) => postItems(e)}
+          buttonText="Enviar pedido"
+        />
       </div>
     </>
   );

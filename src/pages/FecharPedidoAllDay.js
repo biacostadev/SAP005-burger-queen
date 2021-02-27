@@ -1,5 +1,8 @@
 import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom'
+import TemplateOrderVolumeAllDay from '../components/TemplateOrderVolumeAllDay'
+import TemplateValueOrder from '../components/TemplateValueOrder'
+import Button from '../components/Button'
 import './FecharPedido.css';
 
 function FecharPedidoAllDay() {
@@ -7,6 +10,10 @@ function FecharPedidoAllDay() {
 
   const routerSalao = () => {
     history.push('/salao')
+  }
+
+  const routerAllDay = () => {
+    history.push('/salao/allday')
   }
 
   const getValue = JSON.parse(sessionStorage.getItem("valor"))
@@ -57,20 +64,36 @@ function FecharPedidoAllDay() {
   return (
     <>
       <div className="FecharPedido">
-        <h1 className="FecharPedidoTitle">Fechar Pedido</h1>
+      <Button
+          buttonOnClick={routerAllDay}
+          buttonText="Voltar"
+        />
+        <h1 className="FecharPedidoTitle">Resumo do Pedido</h1>
         {itemPedido && itemPedido.map((item) => (
-          <div key={Math.random()} id={item.id} className="FecharPedidoItem">
-            <p key={Math.random()} className="FecharPedidoName">{item.nome}</p>
-            <p key={Math.random()}>{item.flavor}</p>
-            <p key={Math.random()}>{item.complement}</p>
-            <p key={Math.random()} className="FecharPedidoPrice">R${item.price},00</p>
-          </div>
+          <TemplateOrderVolumeAllDay
+          divClassName="FecharPedidoItem"
+          divKey={Math.random()}
+          divId={item.id}
+          itemName={item.nome}
+          itemPrice={item.price}
+          itemFlavor={item.flavor}
+          itemComplement={item.complement}
+          itemNameKey={Math.random()}
+          itemPriceKey={Math.random()}
+          itemFlavorKey={Math.random()}
+          itemComplementKey={Math.random()}
+          />
         ))}
-        <div className="FecharPedidoItem">
-          <p className="FecharPedidoTotal">Total:</p>
-          <p className="FecharPedidoTotal">R$ {valuePedido},00</p>
-        </div>
-        <button onClick={(e) => postItems(e)} className="FecharPedidoBtn">Enviar pedido</button>
+        <TemplateValueOrder
+          divClassName="FecharPedidoItem"
+          valueText="Total:"
+          valueClassName="FecharPedidoTotal"
+          valuePrice={valuePedido}
+        />
+        <Button
+          buttonOnClick={(e) => postItems(e)}
+          buttonText="Enviar pedido"
+        />
       </div>
     </>
   );

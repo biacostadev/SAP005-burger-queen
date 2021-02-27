@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom'
+import TemplateItem from '../components/TemplateItem'
+import TemplateCommand from '../components/TemplateCommand'
+import Button from '../components/Button'
 import './Cafe.css';
 
 function Cafe() {
   useEffect(() => {
     getProducts()
+    getData()
   }, [])
 
   const history = useHistory()
@@ -21,6 +25,7 @@ function Cafe() {
   const [totalValor, setTotalValor] = useState(0);
   const token = localStorage.getItem("token")
   const [valueDelect, setValueDelect] = useState(totalValor);
+
   const getProducts = () => {
     fetch('https://lab-api-bq.herokuapp.com/products', {
       headers: {
@@ -33,6 +38,24 @@ function Cafe() {
         const breakfast = json.filter(item => item.type === 'breakfast')
         setMenu(breakfast)
       })
+  }
+
+  const getData = () => {
+    const dataPedido = sessionStorage.getItem("pedidos")
+    if(dataPedido) {
+      const getData = JSON.parse(sessionStorage.getItem("pedidos"))
+      console.log(getData)
+      const itemPedido = getData[0].pedidos
+      console.log(itemPedido)
+      setPedidos(itemPedido)
+    }
+
+    const dataValor = sessionStorage.getItem("valor")
+    if(dataValor) {
+      const getValue = JSON.parse(sessionStorage.getItem("valor"))
+      const valuePedido = getValue[0]
+      setTotalValor(valuePedido)
+    }
   }
 
   const [pedidos, setPedidos] = useState([]);
@@ -61,69 +84,78 @@ function Cafe() {
     console.log(valueDelect)
   }
 
+  const addItemToCommand = (e) => {
+    const parent = e.target.parentNode;
+    const price = parent.getAttribute('price');
+    const id = parent.getAttribute('id');
+    const name = parent.getAttribute('name');
+
+    const itemPedido = {
+      id: id,
+      nome: name,
+      price: price
+    }
+    adicionarItem(itemPedido)
+  }
+
+  const orderVolume = () => {
+    const objPedidos = [
+      { "pedidos": pedidos }
+    ]
+    const objValor = [
+      totalValor,
+    ]
+
+    console.log(objPedidos)
+    sessionStorage.setItem("pedidos", JSON.stringify(objPedidos));
+    sessionStorage.setItem("valor", JSON.stringify(objValor));
+
+    routerFechar()
+  }
+
   return (
     <div className="Cafe">
       <button onClick={routerSalao} className="CafeMenuBtnBack">Início</button>
       <div className="CafeMenu">
         {menu && menu.map((item) => (
-          <div className="divMae" key={item.name} name={item.name} id={item.id} price={item.price}>
-            <h1 className="divName">{item.name}</h1>
-            <h1 className="divPrice">R$ {item.price},00</h1>
-            <button onClick={
-              (event) => {
-                const parent = event.target.parentNode;
-                const price = parent.getAttribute('price');
-                const id = parent.getAttribute('id');
-                const name = parent.getAttribute('name');
-
-                const itemPedido = {
-                  id: id,
-                  nome: name,
-                  price: price
-                }
-                adicionarItem(itemPedido)
-              }
-            } className="btnAdc">
-              Adicionar
-        </button>
-          </div>
+          <TemplateItem
+            divClassName="divMae"
+            divKey={Math.random()}
+            divName={item.name}
+            divId={item.id}
+            divPrice={item.price}
+            divOnClick={addItemToCommand}
+            itemName={item.name}
+            itemPrice={item.price}
+            itemNameKey={Math.random()}
+            itemPriceKey={Math.random()}
+          />
         ))}
         <div className="divPedidosBlock">
           <div className="divPedidos">
             <h1 className="divPedidosTitle">Pedido:</h1>
 
             {pedidos && pedidos.map((item) =>
-              <div className="divPedidosIndividuais" key={Math.random()}>
-                <button key={Math.random()} className='btnDelet' onClick={() => deletItem(item, pedidos)}>X</button>
-                <p key={Math.random()}>{item.nome}</p>
-                <p key={Math.random()}>R${item.price},00</p>
-              </div>
+              <TemplateCommand
+                divClassName="divPedidosIndividuais"
+                divKey={Math.random()}
+                btnKey={Math.random()}
+                btnClassName="btnDelet"
+                btnOnClick={() => deletItem(item, pedidos)}
+                btnText="X"
+                itemName={item.nome}
+                itemPrice={item.price}
+                itemNameKey={Math.random()}
+                itemPriceKey={Math.random()}
+              />
             )}
             <h3>{totalValor}</h3>
           </div>
-
-          <button onClick={
-            (event) => {
-              console.log(pedidos)
-              console.log(totalValor)
-
-              const objPedidos = [
-                { "pedidos": pedidos }
-              ]
-              const objValor = [
-                totalValor,
-              ]
-
-              console.log(objPedidos)
-              sessionStorage.setItem("pedidos", JSON.stringify(objPedidos));
-              sessionStorage.setItem("valor", JSON.stringify(objValor));
-
-              routerFechar()
-
-            }
-          } className="btnAdc">Fechar</button>
-
-
+          
+          <Button
+          buttonOnClick={orderVolume}
+          buttonText="Ver Resumo"
+          />
         </div>
       </div>
     </div>
