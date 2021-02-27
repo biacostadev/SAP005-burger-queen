@@ -1,7 +1,7 @@
 import React from 'react';
 import Logo from './logo.png';
-import Button from './components/Button'
-import './App.css';
+import Button from '../components/Button'
+import '../style/App.css';
 import {useHistory} from 'react-router-dom'
 
 

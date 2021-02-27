@@ -1,0 +1,43 @@
+.Cadastro {
+  background-color: #FEDBB0;
+  width: 850px;
+  height: 1000px;
+  border: 3px solid #000000;
+  border-radius: 15px;
+  display: flex;  
+  align-items: center;
+}
+
+.FormCadastro {
+  margin: 0 auto 0;
+  height: 700px;  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-content: space-around
+}
+
+.cadInput {
+  width: 540px;
+  height: 70px;
+  border: 3px solid #000000;
+  background: #FFFFFF;
+  border-radius: 15px;
+  font-size: 36px;
+}
+
+.cadInputOption {
+  font-size: 20px;
+  width: 30px;
+  height: 82px;
+}
+
+.Cadastro button {
+  width: 540px;
+  height: 70px;
+  border:8px solid #483F3F;
+  font-size: 40px;
+  font-weight: bold;
+  color: white;
+  margin: 0;
+}

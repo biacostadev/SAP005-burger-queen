@@ -7,7 +7,7 @@ function Button({
    
   return (
     <>
-    <button onClick={buttonOnClick} className="btnMenu">{buttonText}</button>
+    <button onClick={buttonOnClick} className="btnComponent">{buttonText}</button>
     </>
   )
 

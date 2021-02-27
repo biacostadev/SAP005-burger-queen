@@ -15,10 +15,11 @@
   line-height: 53px;
 }
 
-.logout, .btnMenu {
+.logout, .btnComponent {
   background-color: #6E3D1C;  
   height: 70px;
-  border: 8px solid #000000;
+  width: 540px;
+  border: 8px solid#483F3F;
   border-radius: 18px;
   font-size: 35px; 
   color: #FFFFFF;

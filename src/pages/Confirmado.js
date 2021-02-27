@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom'
-import './Confirmado.css';
+import '../style/Confirmado.css';
 
 function Confirmado() {
 

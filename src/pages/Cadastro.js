@@ -3,7 +3,7 @@ import InputTxt from '../components/InputTxt';
 import Select from '../components/Select';
 import Button from '../components/Button';
 import { useHistory } from 'react-router-dom'
-import './Cadastro.css';
+import '../style/Cadastro.css';
 
 function Cadastro() {
   const history = useHistory()
@@ -37,38 +37,28 @@ function Cadastro() {
 
   return (
     <div className="Cadastro">
-      <h1 className="CadTitle">Cadastro</h1>
       <form className="FormCadastro">
         <InputTxt
           inputType="text"
-          inputPlaceholder="Nome"
+          inputPlaceholder="Digite seu nome"
           inputValue={name}
-          inputOnChange={(event) => setName(event.target.value)}
-          labelHtmlFor="cadInputName"
-          labelText="Nome:"
-          labelClassName="cadLabel"
+          inputOnChange={(event) => setName(event.target.value)}         
           inputClassName="cadInput"
         />
 
         <InputTxt
           inputType="text"
-          inputPlaceholder="E-mail"
+          inputPlaceholder="Digite seu E-mail"
           inputValue={email}
           inputOnChange={(event) => setEmail(event.target.value)}
-          labelHtmlFor="cadInputEmail"
-          labelText="E-mail:"
-          labelClassName="cadLabel"
           inputClassName="cadInput"
         />
 
         <InputTxt
           inputType="password"
-          inputPlaceholder="Senha"
+          inputPlaceholder="Digite sua senha"
           inputValue={password}
           inputOnChange={(event) => setPassword(event.target.value)}
-          labelHtmlFor="cadInputPassword"
-          labelText="Senha:"
-          labelClassName="cadLabel"
           inputClassName="cadInput"
         />
 
@@ -85,9 +75,6 @@ function Cadastro() {
           optionText3="Cozinheiro"
           optionClassName="cadInputOption"
           optionDisabled
-          labelClassName="cadLabel"
-          labelHtmlFor="cadInputRole"
-          labelText="Cargo:"
         />
 
         <Button
