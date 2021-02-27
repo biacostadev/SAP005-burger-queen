@@ -1,4 +1,4 @@
-import './Login.css';
+import '../style/Login.css';
 import React, { useState } from 'react';
 import InputTxt from '../components/InputTxt';
 import Button from '../components/Button';
@@ -51,32 +51,25 @@ function Login() {
 
   return (
     <div className="Login">
-      <h1 className="LoginTitle">Entrar</h1>
       <form className="LoginForm">
 
         <InputTxt
           inputType="text"
-          inputPlaceholder="E-mail"
+          inputPlaceholder=" Digite seu E-mail"
           inputValue={email}
           inputOnChange={(event) => setEmail(event.target.value)}
-          labelHtmlFor="loginInputEmail"
-          labelText="E-mail:"
-          labelClassName="LoginLabel"
           inputClassName="LoginInput"
         />
 
         <InputTxt
           inputType="password"
-          inputPlaceholder="Senha"
+          inputPlaceholder=" Digite sua senha"
           inputValue={password}
           inputOnChange={(event) => setPassword(event.target.value)}
-          labelHtmlFor="loginInputPassword"
-          labelText="Senha:"
-          labelClassName="LoginLabel"
           inputClassName="LoginInput"
         />
 
-        <Button
+        <Button 
           buttonOnClick={loginBtn}
           buttonText="Login"
         />

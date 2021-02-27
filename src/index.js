@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './style/index.css';
 import Cadastro from './pages/Cadastro';
-import App from './App';
+import App from './pages/App';
 import Login from './pages/Login';
 import Confirmado from './pages/Confirmado';
 import Salao from './pages/Salao';

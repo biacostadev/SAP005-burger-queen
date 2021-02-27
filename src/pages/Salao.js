@@ -81,12 +81,7 @@ function Salao() {
 
   return (
     <div className="Salao">
-      <div className="SalaoHeader">
-        <h1>{nome} - {role}</h1>
-        <Button
-          buttonOnClick={(e) => logout(e)}
-          buttonText="Sair"
-        />
+      <div className="SalaoHeader">        
       </div>
       <h1 className="messageSelect">Selecione o Período:</h1>
       <div className="btnSalao">
@@ -143,6 +138,10 @@ function Salao() {
         buttonOnClick={(e) => routerAllOrders(e)}
         buttonText="Todos os Pedidos"
       />
+      <Button
+          buttonOnClick={(e) => logout(e)}
+          buttonText="Sair"
+        />
 
     </div>
   )

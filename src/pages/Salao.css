@@ -8,7 +8,7 @@ html{
 }
 
 .Salao {
-  background-color: #FDE5C9;
+  background-color: #FEDBB0;
   width: 850px;
   height: 1150px;
   border: 3px solid #000000;
@@ -16,21 +16,15 @@ html{
   align-items: center;
   display: flex;
   flex-direction: column;
+  justify-content: center;
 
 }
-
-.SalaoHeader {
-  display: flex;
-  justify-content: space-evenly;
-}
-
 .SalaoTitle {
   font-size: 90px;
   line-height: 53px;
 }
 
 .messageSelect{
-  margin-top: 40%;
   font-size: 40px;
 }
 

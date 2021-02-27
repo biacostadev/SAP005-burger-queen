@@ -1,0 +1,33 @@
+body,
+html{
+  height: 100%;
+  width: 100%;
+  background-image: url(./background.png);
+}
+
+.AppInit {
+  width: 800px;
+  height: 900px;
+  text-align: center;
+  justify-content: center;
+}
+
+.logo{
+  width: 550px;
+  height: 550px;  
+}
+
+.AppInit button{
+  width: 540px;
+  height: 70px;
+  border:8px solid #483F3F;
+  font-size: 40px;
+  font-weight: bold;
+  color: white;
+  margin: 0;
+  margin-top: 1rem;
+}
+
+
+
+
