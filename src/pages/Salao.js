@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Button from '../components/Button'
 import InputTxt from '../components/InputTxt';
 import { useHistory } from 'react-router-dom'
-import './Salao.css';
+import '../style/Salao.css';
 
 function Salao() {
   const history = useHistory()
