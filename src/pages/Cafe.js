@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom'
 import TemplateItem from '../components/TemplateItem'
 import TemplateCommand from '../components/TemplateCommand'
 import Button from '../components/Button'
-import './Cafe.css';
+import '../style/Cafe.css'
 
 function Cafe() {
   useEffect(() => {

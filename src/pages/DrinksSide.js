@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom'
 import TemplateItem from '../components/TemplateItem'
 import TemplateCommand from '../components/TemplateCommand'
 import Button from '../components/Button'
-import './DrinksSide.css';
+import '../style/DrinksSide.css';
 
 function DrinksSide() {
   useEffect(() => {
@@ -140,8 +140,10 @@ function DrinksSide() {
 
   return (
     <div className="DrinksSide">
-      <button onClick={routerAllDay} className="CafeMenuBtnBack">Menu</button>
-      <h2>{type}</h2>
+      <div className="BtnHeader">
+        <button onClick={routerAllDay} className="CafeMenuBtnBack">Menu</button>
+        <h2>{type}</h2>
+      </div>     
       <div className="CafeMenu">
         {menu && menu.map((item) => (
           <TemplateItem
@@ -175,7 +177,7 @@ function DrinksSide() {
               itemPriceKey={Math.random()}
             />
             )}
-            <h3>{totalValor}</h3>
+            <h3> Total : {totalValor},00</h3>
           </div>
 
           <Button

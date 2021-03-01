@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom'
 import Button from '../components/Button'
 import TemplateChangeStatus from '../components/TemplateChangeStatus'
-import './ChangeStatus.css';
+import '../style/ChangeStatus.css';
 
 function ChangeStatus() {
   useEffect(() => {
@@ -66,26 +66,29 @@ function ChangeStatus() {
 
   return (
     <div className="ChangeStatus">
-      <div className="SalaoHeader">
-        <Button
-          buttonOnClick={(e) => menu(e)}
-          buttonText="Lista de pedidos para fazer"
-        />
+      <h1>Preparar :</h1>
 
-        <div key={Math.random()}>
+        <div key={Math.random()} className="cardsPending">
           {orders && orders.map((item) => (
             <TemplateChangeStatus
+            
               itemKey={Math.random()}
-              itemName={item.name}
               itemQtd={item.qtd}
+              itemName={item.name}
             />
           ))}
 
-          <Button
+         
+        </div>
+        <Button
             buttonOnClick={putStatus}
             buttonText="Atualizar"
           />
-        </div>
+          <div className="SalaoHeader">
+        <Button
+          buttonOnClick={(e) => menu(e)}
+          buttonText="Lista de pedidos pendentes"
+        />
 
       </div>
     </div>

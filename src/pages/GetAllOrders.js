@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom'
 import Button from '../components/Button'
 import TemplateGetOrders from '../components/TemplateGetOrders'
-import './GetAllOrders.css';
+import '../style/GetAllOrders.css';
 
 function GetAllOrders() {
   useEffect(() => {
@@ -57,11 +57,7 @@ function GetAllOrders() {
 
   return (
     <div className="GetAllOrders">
-      <Button
-        buttonOnClick={(e) => menu(e)}
-        buttonText="Voltar"
-      />
-      <div className="SalaoHeader">
+      <div className="SalaoHeader">       
         {orders && orders.map((item) => (
           <TemplateGetOrders
             divClassName="logout"
@@ -70,6 +66,7 @@ function GetAllOrders() {
               sessionStorage.setItem("itemId", item.id)
               routerStatus()
             }}
+            divClassName="cards"
             itemStatus={item.status}
             clientNameKey={Math.random()}
             clientName={item.client_name}
@@ -80,6 +77,10 @@ function GetAllOrders() {
           />
         ))}
       </div>
+      <Button
+        buttonOnClick={(e) => menu(e)}
+        buttonText="Voltar"
+      />
     </div>
   )
 }
