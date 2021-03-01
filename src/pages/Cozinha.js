@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from '../components/Button';
 import { useHistory } from 'react-router-dom'
-import './Cozinha.css';
+import '../style/Cozinha.css';
 
 
 function Cozinha() {
@@ -34,11 +34,8 @@ function Cozinha() {
   }
 
   return (
-    <div className="Cozinha">
-      <Button
-        buttonOnClick={(e) => logout(e)}
-        buttonText="Sair"
-      />
+    <div className="Cozinha">   
+    <h1>Cozinha :</h1>  
       <Button
         buttonOnClick={(e) => Preparar(e)}
         buttonText="Preparar"
@@ -47,7 +44,12 @@ function Cozinha() {
         buttonOnClick={(e) => routerAllOrders(e)}
         buttonText="Todos os Pedidos"
       />
+       <Button
+        buttonOnClick={(e) => logout(e)}
+        buttonText="Sair"
+      />
     </div>
+    
 
   );
 }

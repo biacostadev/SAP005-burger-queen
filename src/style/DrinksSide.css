@@ -3,8 +3,16 @@
   box-sizing: border-box;
   margin: 0;
 }
+.BtnHeader{
+  display: flex;
+  flex-direction: row;
+}
+  .BtnHeader h2{
+    margin: 5% 0 0 18%;
+    font-size: 40px;
+  }
 
-.Burger {
+.DrinksSide {
   background-color: #FDE5C9;
   width: 850px;
   height: 1150px;
@@ -13,8 +21,8 @@
   overflow: scroll;
 }
 
-.divMaeBurger{
-  width: 250px;
+.divMaeDrinksSide{
+  width: 45%;
   background-color: #6E3D1C;
   border: 8px solid #000000;
   border-radius: 18px;
@@ -27,10 +35,6 @@
   flex-direction: column;
   justify-content: flex-start;
 }
-
-.divNameBurger {
-  font-size: 35px;
-  text-align: center;
-  margin-bottom: 10px;
-  border-bottom: #FDE5C9 5px solid;
+h3{
+  margin-left: 60%;
 }

@@ -1,0 +1,37 @@
+.GetAllOrders {
+    background-color:  #FEDBB0;
+    width: 850px;
+    height: 1150px;
+    border: 3px solid #000000;
+    border-radius: 25px; 
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  
+  }
+  .GetAllOrders h1{
+    font-size: 50px;
+  }
+
+  .SalaoHeader{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+
+.cards{  
+  flex-wrap: wrap;
+ font-size: 80px;
+  width: 350px;
+  height: 300px;
+  font-size: 30px;
+  background-color: #6E3D1C;
+  margin: 5px;
+  margin-top: 20px;
+  border: 8px solid #483F3F;
+  border-radius: 15px;
+  color:white;
+  font-weight: bold;
+}
+  

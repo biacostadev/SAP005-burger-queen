@@ -3,13 +3,14 @@ import React from 'react';
 function TemplateChangeStatus({
   itemKey,
   itemName,
-  itemQtd
+  itemQtd,
+  className
 }) {
 
 
   return (
     <>
-      <p key={itemKey}>{itemName} | {itemQtd}</p>
+      <p key={itemKey} className={className}> {itemQtd}{itemName}</p>
     </>
   )
 

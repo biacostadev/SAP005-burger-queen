@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom'
 import Button from '../components/Button'
 import TemplateOrderVolume from '../components/TemplateOrderVolume'
 import TemplateValueOrder from '../components/TemplateValueOrder'
-import './FecharPedido.css';
+import '../style/FecharPedido.css';
 
 function FecharPedido() {
   const history = useHistory()

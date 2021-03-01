@@ -1,7 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom'
 import Button from '../components/Button'
-import './Cafe.css';
+import '../style/AllDay.css'
 
 function AllDay() {
   const history = useHistory()
@@ -27,19 +27,16 @@ function AllDay() {
   }
 
   return (
-    <div className="Cafe">
-      <Button
-        buttonOnClick={routerSalao}
-        buttonText="Início"
-      />
+    <div className="Cafe">     
+      <div className="Menu">
 
-      <div className="CafeMenu">
         <div name="Hambúrguer simples">
           <Button
             buttonOnClick={(e) => { routerBurger(e) }}
             buttonText="Hambúrguer simples"
           />
         </div>
+        
 
         <div name="Hambúrguer duplo">
           <Button
@@ -62,6 +59,12 @@ function AllDay() {
           />
         </div>
 
+      <div>
+      <Button
+        buttonOnClick={routerSalao}
+        buttonText="Início"
+      />
+      </div>
       </div>
     </div>
   );

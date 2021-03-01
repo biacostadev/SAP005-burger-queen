@@ -18,8 +18,8 @@ function TemplateGetOrders({
     <>
       <div className={divClassName} key={divKey} onClick={divOnClick}>
         <p>{itemStatus}</p>
-        <p key={clientNameKey}>{clientName}</p>
-        <p key={itemIdKey}>{itemId}</p>
+        <p key={clientNameKey}> Nome: {clientName}</p>
+        <p key={itemIdKey}> Mesa: {itemId}</p>
         <p key={itemCreatedAtKey}>{itemCreatedAt}</p>
       </div>
     </>
