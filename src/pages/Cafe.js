@@ -68,7 +68,8 @@ function Cafe() {
       setPedidos(newArray)
       somarItens()
     }else{
-      newArray.splice(index, 1, {...item, qnt:  newArray[index].qnt +  1})
+      newArray.splice(index, 1, {...item, qnt:  newArray[index].qnt +  1}, )
+      // newArray.splice(index, 1, {...item, price:  Number(newArray[index].price) +  Number(newArray[index].price)})
       setPedidos(newArray)
       somarItens()
     }
@@ -156,7 +157,7 @@ function Cafe() {
               btnOnClick={() => deletItem(item, pedidos)}
               btnText="X"
               btnAmout = {Math.random()}
-              amount={item.qnt}
+              itemQnt={item.qnt}
               itemName={item.nome}
               itemPrice={item.price}
               itemNameKey={Math.random()}
