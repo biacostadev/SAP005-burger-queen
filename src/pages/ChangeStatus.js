@@ -87,7 +87,7 @@ function ChangeStatus() {
           <div className="SalaoHeader">
         <Button
           buttonOnClick={(e) => menu(e)}
-          buttonText="Lista de pedidos pendentes"
+          buttonText="Pedidos"
         />
 
       </div>

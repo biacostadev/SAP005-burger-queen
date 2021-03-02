@@ -27,7 +27,7 @@ function AllDay() {
   }
 
   return (
-    <div className="Cafe">     
+    <div className="AllDay">     
       <div className="Menu">
 
         <div name="Hambúrguer simples">

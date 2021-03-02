@@ -15,28 +15,21 @@
   font-size: 50px;
 }
 
-.CozinhaTitle {
-  font-size: 90px;
-  line-height: 53px;
+.Cozinha button {
+  width: 60vw;
 }
 
-.logout, .btnComponent {
-  background-color: #6E3D1C;  
-  height: 70px;
-  width: 540px;
-  border: 8px solid#483F3F;
-  border-radius: 18px;
-  font-size: 35px; 
-  color: #FFFFFF;
-  margin: 30px;
-  font-weight: bold;
-}
-.logout{
-  width: 134px;
-  margin: 5% 0 30% 30%;  
-}
+@media (max-width:1000px)  {
+  .Cozinha {
+    width: 90vw;
+    height: 23em;
+    border: 2px solid #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-.btnMenu{
-  width: 400px;
-
+  .Cozinha button {
+    width: 20em;
+  }
 }

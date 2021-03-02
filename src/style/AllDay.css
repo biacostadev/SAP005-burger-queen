@@ -1,14 +1,66 @@
-.Cafe {
-    background-color: #FEDBB0;
-    width: 850px;
-    height: 1150px;
-    border: 3px solid #483F3F;
-    border-radius: 25px;
-  }
+.AllDay {
+  background-color: #FEDBB0;
+  width: 850px;
+  height: 1150px;
+  border: 3px solid #483F3F;
+  border-radius: 25px;
+}
 .Menu{
-    margin-top: 30%;
+  margin-top: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.Menu button {
+  width: 15em;
+}
+
+@media (max-width:1000px)  {
+  .AllDay {
+    width: 90vw;
+    height: 23em;
+    border: 2px solid #000000;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .Menu{
+    margin-top: 0;
+    width: 100%;
+    display: flex;
+    flex-flow: wrap;
     align-items: center;
     justify-content: center;
+  }
+
+  .Menu button {
+    width: 20em;
+  }
+}
+
+@media (min-width:1040px)  {
+  .AllDay {
+    width: 90vw;
+    height: 23em;
+    border: 2px solid #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .Menu{
+    margin-top: 0;
+    width: 100%;
+    display: flex;
+    flex-flow: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .Menu button {
+    width: 20em;
+  }
 }

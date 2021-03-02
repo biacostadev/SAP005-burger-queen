@@ -81,67 +81,70 @@ function Salao() {
 
   return (
     <div className="Salao">
-      <div className="SalaoHeader">        
-      </div>
+      <div className="SalaoPedido">
       <h1 className="messageSelect">Selecione o Período:</h1>
-      <div className="btnSalao">
-        <Button
-          buttonOnClick={routerCafe}
-          buttonText="Café da manhã"
-        />
-        <Button
-          buttonOnClick={routerAllDay}
-          buttonText="Resto do dia"
-        />
-      </div>
-      <div className="inputSalao">
-        <div className="inputLabel">
-          <InputTxt
-            inputType= "text"
-            inputPlaceholder="Cliente"
-            inputValue={nameClient}
-            inputOnChange={(event) => setNameClient(event.target.value)}
-            labelHtmlFor="cadInputEmail"
-            labelText="Cliente:"
-            labelClassName="cadLabel"
-            inputClassName="cadInput"
+        <div className="btnSalao">
+          <Button
+            buttonOnClick={routerCafe}
+            buttonText="Café da manhã"
+          />
+          <Button
+            buttonOnClick={routerAllDay}
+            buttonText="Resto do dia"
           />
         </div>
+        <div className="inputSalao">
+          <div className="inputLabel">
+            <InputTxt
+              inputType="text"
+              inputPlaceholder="Cliente"
+              inputValue={nameClient}
+              inputOnChange={(event) => setNameClient(event.target.value)}
+              labelHtmlFor="cadInputEmail"
+              labelText="Cliente:"
+              labelClassName="cadLabel"
+              inputClassName="cadInput"
+            />
+          </div>
 
-        <div className="inputLabel">
-        <InputTxt
-            inputType= "number"
-            inputPlaceholder="Mesa"
-            inputValue={table}
-            inputOnChange={(event) => setTable(event.target.value)}
-            labelHtmlFor="cadInputEmail"
-            labelText="Mesa:"
-            labelClassName="cadLabel"
-            inputClassName="cadInput"
-          />
+          <div className="inputLabel">
+            <InputTxt
+              inputType="number"
+              inputPlaceholder="Mesa"
+              inputValue={table}
+              inputOnChange={(event) => setTable(event.target.value)}
+              labelHtmlFor="cadInputEmail"
+              labelText="Mesa:"
+              labelClassName="cadLabel"
+              inputClassName="cadInput"
+            />
+          </div>
         </div>
       </div>
 
-      <Button
-        buttonOnClick={(e) => routerPronto(e)}
-        buttonText="Ver Pedidos Prontos"
-      />
-      <Button
-        buttonOnClick={(e) => routerEntregue(e)}
-        buttonText="Ver Pedidos Entregue"
-      />
-      <Button
-        buttonOnClick={(e) => routerPending(e)}
-        buttonText="Ver Pedidos Pending"
-      />
-      <Button
-        buttonOnClick={(e) => routerAllOrders(e)}
-        buttonText="Todos os Pedidos"
-      />
-      <Button
+      <div className="SalaoVerPedidos">
+        <Button
+          buttonOnClick={(e) => routerPronto(e)}
+          buttonText="Ver Pedidos Prontos"
+        />
+        <Button
+          buttonOnClick={(e) => routerEntregue(e)}
+          buttonText="Ver Pedidos Entregue"
+        />
+        <Button
+          buttonOnClick={(e) => routerPending(e)}
+          buttonText="Ver Pedidos Pending"
+        />
+        <Button
+          buttonOnClick={(e) => routerAllOrders(e)}
+          buttonText="Todos os Pedidos"
+        />
+        <Button
           buttonOnClick={(e) => logout(e)}
           buttonText="Sair"
         />
+      </div>
+
 
     </div>
   )

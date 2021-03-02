@@ -148,27 +148,27 @@ function Burger() {
 
   return (
     <div className="Burger">
-      <div className="BtnHeader">
-      <button onClick={routerAllDay} className="CafeMenuBtnBack">Menu</button>
-      <h2>{name}</h2>
-      </div>
-      
-      <div className="CafeMenu">
-        {menu && menu.map((item) => (
-          <TemplateItemBurger
-            divClassName="divMaeBurger"
-            divKey={Math.random()}
-            divName={item.name}
-            divFlavor={item.flavor}
-            divComplement={item.complement}
-            divId={item.id}
-            divPrice={item.price}
-            divOnClick={(e) => fazendoPedido(e)}
-            itemFlavor={item.flavor}
-            itemComplement={item.complement}
-            itemPrice={item.price}
-          />
-        ))}
+      <div className="BurgerNav">
+        <button onClick={routerAllDay} className="CafeMenuBtnBack">Menu</button>
+        <h2>{name}</h2>
+        <div className="BurgerMenu">
+          {menu && menu.map((item) => (
+            <TemplateItemBurger
+              divClassName="divMaeBurger"
+              divKey={Math.random()}
+              divName={item.name}
+              divFlavor={item.flavor}
+              divComplement={item.complement}
+              divId={item.id}
+              divPrice={item.price}
+              divOnClick={(e) => fazendoPedido(e)}
+              itemFlavor={item.flavor}
+              itemComplement={item.complement}
+              itemPrice={item.price}
+            />
+          ))}
+        </div>
+        </div>
         <div className="divPedidosBlock">
           <div className="divPedidos">
             <h1 className="divPedidosTitle">Pedido:</h1>
@@ -194,13 +194,13 @@ function Burger() {
             )}
             <h3> Total : {totalValor},00</h3>
           </div>
-          
+
           <Button
-          buttonOnClick={(e) => setFinalPedido(e)}
-          buttonText="Ver Resumo"
+            buttonOnClick={(e) => setFinalPedido(e)}
+            buttonText="Ver Resumo"
           />
         </div>
-      </div>
+      
     </div>
   );
 }

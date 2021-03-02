@@ -26,4 +26,75 @@ margin-top: 5rem;
   background-color:#C4C4C4;
   border-bottom: 2px #1c1c1c solid;
   font-size: 40px;
+  padding: 10px;
  }
+
+ .ChangeStatus button{
+  width: 50vw;
+ }
+
+ @media (max-width:1000px)  {
+  .ChangeStatus {
+    width: 90vw;
+    height: 23em;
+    border: 2px solid #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .ChangeStatus h1{
+    font-size: 2em;
+    margin-top: 10px;
+  }
+
+  .cardsPending{  
+    flex-direction: column;
+    justify-content: center;
+    margin: 10px auto 10px;
+    width: 20em;
+    height: 20em;
+    border-radius: 15px;
+    display: flex;
+    background-color:#C4C4C4;
+    border-bottom: 2px #1c1c1c solid;
+    font-size: 1.2em;
+  }
+
+  .ChangeStatus button{
+    width: 15em;
+  }
+}
+
+@media (min-width:1040px)  {
+  .ChangeStatus {
+    width: 90vw;
+    height: 23em;
+    border: 2px solid #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .ChangeStatus h1{
+    font-size: 2em;
+    margin-top: 10px;
+  }
+
+  .cardsPending{  
+    flex-direction: column;
+    justify-content: center;
+    margin: 10px auto 10px;
+    width: 20em;
+    height: 20em;
+    border-radius: 15px;
+    display: flex;
+    background-color:#C4C4C4;
+    border-bottom: 2px #1c1c1c solid;
+    font-size: 1.2em;
+  }
+
+  .ChangeStatus button{
+    width: 15em;
+  }
+}

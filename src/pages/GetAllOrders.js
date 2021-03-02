@@ -57,10 +57,9 @@ function GetAllOrders() {
 
   return (
     <div className="GetAllOrders">
-      <div className="SalaoHeader">       
+      <div className="GetAllOrdersCards">       
         {orders && orders.map((item) => (
           <TemplateGetOrders
-            divClassName="logout"
             divKey={Math.random()}
             divOnClick={() => {
               sessionStorage.setItem("itemId", item.id)

@@ -14,7 +14,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  justify-content: space-around
+  align-items: center;
 }
 
 .cadInput {
@@ -24,6 +24,8 @@
   background: #FFFFFF;
   border-radius: 15px;
   font-size: 36px;
+  padding-left: 1em;
+  margin-bottom: 20px;
 }
 
 .cadInputOption {
@@ -40,4 +42,67 @@
   font-weight: bold;
   color: white;
   margin: 0;
+}
+
+@media (max-width:1000px)  {
+  .Cadastro {
+    width: 40vw;
+    height: 23em;
+    border: 2px solid #000000;
+  } 
+
+  .FormCadastro {  
+    height: 100%;  
+    width: 100%;
+  }
+  
+  .cadInput {
+    margin-bottom: 1rem;
+    width: 70%;
+    height: 10%;
+    border: 2px solid #000000;
+    background: #FFFFFF;
+    border-radius: 15px;
+    font-size: 1em;
+    margin-bottom: 10px;
+  }
+
+  .Cadastro button {
+    width: 70%;
+    height: 10%;
+    border:4px solid #483F3F;
+    font-size: 1em;
+    cursor: pointer;
+  }
+}
+
+@media (min-width:1040px)  {
+  .Cadastro {
+    width: 40vw;
+    height: 23em;
+    border: 2px solid #000000;
+  } 
+
+  .FormCadastro {  
+    height: 100%;  
+    width: 100%;
+  }
+  
+  .cadInput {
+    margin-bottom: 1rem;
+    width: 70%;
+    height: 10%;
+    border: 2px solid #000000;
+    background: #FFFFFF;
+    border-radius: 15px;
+    font-size: 1em;
+  }
+
+  .Cadastro button {
+    width: 70%;
+    height: 10%;
+    border:4px solid #483F3F;
+    font-size: 1em;
+    cursor: pointer;
+  }
 }
