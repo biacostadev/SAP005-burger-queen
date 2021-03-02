@@ -33,7 +33,7 @@ function DrinksSide() {
 
   const getData = () => {
     const dataPedido = sessionStorage.getItem("pedidos")
-    if(dataPedido) {
+    if (dataPedido) {
       const getData = JSON.parse(sessionStorage.getItem("pedidos"))
       console.log(getData)
       const itemPedido = getData[0].pedidos
@@ -42,7 +42,7 @@ function DrinksSide() {
     }
 
     const dataValor = sessionStorage.getItem("valor")
-    if(dataValor) {
+    if (dataValor) {
       const getValue = JSON.parse(sessionStorage.getItem("valor"))
       const valuePedido = getValue[0]
       setTotalValor(valuePedido)
@@ -140,31 +140,34 @@ function DrinksSide() {
 
   return (
     <div className="DrinksSide">
-      <div className="BtnHeader">
-        <button onClick={routerAllDay} className="CafeMenuBtnBack">Menu</button>
-        <h2>{type}</h2>
-      </div>     
-      <div className="CafeMenu">
-        {menu && menu.map((item) => (
-          <TemplateItem
-          divClassName="divMae"
-          divKey={Math.random()}
-          divName={item.name}
-          divId={item.id}
-          divPrice={item.price}
-          divOnClick={addItemToCommand}
-          itemName={item.name}
-          itemPrice={item.price}
-          itemNameKey={Math.random()}
-          itemPriceKey={Math.random()}
-        />
-        ))}
-        <div className="divPedidosBlock">
-          <div className="divPedidos">
-            <h1 className="divPedidosTitle">Pedido:</h1>
+      <div className="DrinksSideMenu">
+          <button onClick={routerAllDay} className="DrinksSideMenuBtnBack">Menu</button>
+          <h2 className="Type">{type}</h2>
 
-            {pedidos && pedidos.map((item) =>
-              <TemplateCommand
+          <div className="CafeMenu">
+            {menu && menu.map((item) => (
+              <TemplateItem
+                divClassName="divMaeDrinksSide"
+                divKey={Math.random()}
+                divName={item.name}
+                divId={item.id}
+                divPrice={item.price}
+                divOnClick={addItemToCommand}
+                itemName={item.name}
+                itemPrice={item.price}
+                itemNameKey={Math.random()}
+                itemPriceKey={Math.random()}
+              />
+            ))}
+          </div>
+      </div>
+
+      <div className="divPedidosBlock">
+        <div className="DrinksSidePedidos">
+          <h1 className="divPedidosTitle">Pedido:</h1>
+
+          {pedidos && pedidos.map((item) =>
+            <TemplateCommand
               divClassName="divPedidosIndividuais"
               divKey={Math.random()}
               btnKey={Math.random()}
@@ -176,17 +179,17 @@ function DrinksSide() {
               itemNameKey={Math.random()}
               itemPriceKey={Math.random()}
             />
-            )}
-            <h3> Total : {totalValor},00</h3>
-          </div>
+          )}
+          <h3> Total : {totalValor},00</h3>
+        </div>
 
-          <Button
+        <Button
           buttonOnClick={(e) => setFinalPedido(e)}
           buttonText="Ver Resumo"
-          />
+        />
 
-        </div>
       </div>
+
     </div>
   );
 }

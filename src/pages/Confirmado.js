@@ -14,7 +14,7 @@ function Confirmado() {
     <div className="Confirmado">
       <h1 className="ConfmTitle">Usuário criado com sucesso!</h1>
       <h1 className="ConfmTitle">Faça o login:</h1>
-      <button className="cadBtn" onClick={routerConfirm}>Login</button>
+      <button className="confBtn" onClick={routerConfirm}>Login</button>
     </div>
   );
 }

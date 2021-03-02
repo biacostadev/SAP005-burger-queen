@@ -140,58 +140,58 @@ function Burger() {
 
   return (
     <div className="Burger">
-      <div className="BtnHeader">
-      <button onClick={routerAllDay} className="CafeMenuBtnBack">Menu</button>
-      <h2>{name}</h2>
-      </div>
-      
-      <div className="CafeMenu">
-        {menu && menu.map((item) => (
-          <TemplateItemBurger
-            divClassName="divMaeBurger"
-            divKey={Math.random()}
-            divName={item.name}
-            divFlavor={item.flavor}
-            divComplement={item.complement}
-            divId={item.id}
-            divPrice={item.price}
-            divOnClick={(e) => fazendoPedido(e)}
-            itemFlavor={item.flavor}
-            itemComplement={item.complement}
-            itemPrice={item.price}
-          />
-        ))}
+      <div className="BurgerNav">
+        <button onClick={routerAllDay} className="CafeMenuBtnBack">Menu</button>
+        <h2>{name}</h2>
+        <div className="BurgerMenu">
+          {menu && menu.map((item) => (
+            <TemplateItemBurger
+              divClassName="divMaeBurger"
+              divKey={Math.random()}
+              divName={item.name}
+              divFlavor={item.flavor}
+              divComplement={item.complement}
+              divId={item.id}
+              divPrice={item.price}
+              divOnClick={(e) => fazendoPedido(e)}
+              itemFlavor={item.flavor}
+              itemComplement={item.complement}
+              itemPrice={item.price}
+            />
+          ))}
+        </div>
+        </div>
         <div className="divPedidosBlock">
           <div className="divPedidos">
             <h1 className="divPedidosTitle">Pedido:</h1>
 
             {pedidos && pedidos.map((item) =>
               <TemplateCommandBurger
-              divClassName="divPedidosIndividuais"
-              divKey={Math.random()}
-              btnKey={Math.random()}
-              btnClassName='btnDelet'
-              btnOnClick={() => deletItem(item, pedidos)}
-              btnText="X"
-              itemName={item.nome}
-              itemNameKey={Math.random()}
-              itemFlavor={item.flavor}
-              itemFlavorKey={Math.random()}
-              itemComplement={item.complement}
-              itemComplementKey={Math.random()}
-              itemPrice={item.price}
-              itemPriceKey={Math.random()}
+                divClassName="divPedidosIndividuais"
+                divKey={Math.random()}
+                btnKey={Math.random()}
+                btnClassName='btnDelet'
+                btnOnClick={() => deletItem(item, pedidos)}
+                btnText="X"
+                itemName={item.nome}
+                itemNameKey={Math.random()}
+                itemFlavor={item.flavor}
+                itemFlavorKey={Math.random()}
+                itemComplement={item.complement}
+                itemComplementKey={Math.random()}
+                itemPrice={item.price}
+                itemPriceKey={Math.random()}
               />
             )}
             <h3> Total : {totalValor},00</h3>
           </div>
-          
+
           <Button
-          buttonOnClick={(e) => setFinalPedido(e)}
-          buttonText="Ver Resumo"
+            buttonOnClick={(e) => setFinalPedido(e)}
+            buttonText="Ver Resumo"
           />
         </div>
-      </div>
+      
     </div>
   );
 }
