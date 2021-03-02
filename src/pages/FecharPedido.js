@@ -27,7 +27,7 @@ function FecharPedido() {
   const nameClient = sessionStorage.getItem("nameCliente");
   const table = sessionStorage.getItem("table");
 
-  console.log(token)
+  console.log(token)  
 
   function postItems(e) {
     e.preventDefault();
@@ -46,7 +46,7 @@ function FecharPedido() {
           itemPedido.map((item) => (
             {
               "id": Number(item.id),
-              "qtd": 1
+              "qtd": Number(item.qnt)
             }
           ))
 
@@ -74,6 +74,7 @@ function FecharPedido() {
             divClassName="FecharPedidoItem"
             divKey={Math.random()}
             divId={item.id}
+            qnt= {item.qnt}
             itemName={item.nome}
             itemPrice={item.price}
             itemNameKey={Math.random()}

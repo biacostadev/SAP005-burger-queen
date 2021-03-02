@@ -4,13 +4,13 @@ function TemplateChangeStatus({
   itemKey,
   itemName,
   itemQtd,
-  className
+  className,
 }) {
 
 
   return (
     <>
-      <p key={itemKey} className={className}> {itemQtd}{itemName}</p>
+      <p key={itemKey} className={className}> {itemQtd} {itemName}</p>
     </>
   )
 

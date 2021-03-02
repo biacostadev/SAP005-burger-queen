@@ -7,13 +7,14 @@ function TemplateOrderVolume({
   itemName,
   itemPrice,
   itemNameKey,
-  itemPriceKey
+  itemPriceKey,
+  qnt
 }) {
 
   return (
     <>
       <div key={divKey} id={divId} className={divClassName}>
-        <p key={itemNameKey}>{itemName}</p>
+        <p key={itemNameKey}>{qnt} {itemName}</p>
         <p key={itemPriceKey}>R${itemPrice},00</p>
       </div>
     </>
