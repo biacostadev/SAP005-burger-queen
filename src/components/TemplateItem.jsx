@@ -10,13 +10,14 @@ function TemplateItem({
   itemName,
   itemPrice,
   itemNameKey,
-  itemPriceKey
+  itemPriceKey,
+  itemQnt
 }) {
 
   return (
     <>
       <div onClick={divOnClick} className={divClassName} key={divKey} name={divName} id={divId} price={divPrice}>
-        <h1 className="divName" key={itemNameKey}>{itemName}</h1>
+        <h1 className="divName" key={itemNameKey}>{itemQnt}{itemName}</h1>
         <h1 className="divPrice" key={itemPriceKey}> R$ {itemPrice},00</h1>
         </div>    </>
   )

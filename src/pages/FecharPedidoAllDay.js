@@ -75,6 +75,7 @@ function FecharPedidoAllDay() {
           divKey={Math.random()}
           divId={item.id}
           itemName={item.nome}
+          itemQnt={item.qnt}
           itemPrice={item.price}
           itemFlavor={item.flavor}
           itemComplement={item.complement}

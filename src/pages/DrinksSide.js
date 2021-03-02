@@ -77,9 +77,16 @@ function DrinksSide() {
 
   const adicionarItem = (item) => {
     const newArray = pedidos
-    newArray.push(item)
-    setPedidos(newArray)
-    somarItens()
+    const index = newArray.findIndex(pedido => pedido.nome === item.nome)
+    if(index < 0){
+      newArray.push(item)
+      setPedidos(newArray)
+      somarItens()
+    }else{
+      newArray.splice(index, 1, {...item, qnt:  newArray[index].qnt +  1})
+      setPedidos(newArray)
+      somarItens()
+    }
   }
 
   const somarItens = () => {
@@ -109,6 +116,7 @@ function DrinksSide() {
     const name = parent.getAttribute('name');
 
     const itemPedido = {
+      qnt:1,
       complement: complement,
       flavor: flavor,
       id: id,
@@ -161,7 +169,6 @@ function DrinksSide() {
             ))}
           </div>
       </div>
-
       <div className="divPedidosBlock">
         <div className="DrinksSidePedidos">
           <h1 className="divPedidosTitle">Pedido:</h1>
@@ -174,6 +181,7 @@ function DrinksSide() {
               btnClassName="btnDelet"
               btnOnClick={() => deletItem(item, pedidos)}
               btnText="X"
+              itemQnt={item.qnt}
               itemName={item.nome}
               itemPrice={item.price}
               itemNameKey={Math.random()}

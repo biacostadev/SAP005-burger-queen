@@ -14,14 +14,15 @@ function TemplateCommandBurger({
   itemComplement,
   itemComplementKey,
   itemPrice,
-  itemPriceKey
+  itemPriceKey,
+  itemQnt
 }) {
 
   return (
     <>
       <div className={divClassName} key={divKey}>
         <button key={btnKey} className={btnClassName} onClick={btnOnClick}>{btnText}</button>
-        <p key={itemNameKey}>{itemName}</p>
+        <p key={itemNameKey}>{itemQnt} {itemName}</p>
         <p key={itemFlavorKey}>{itemFlavor}</p>
         <p key={itemComplementKey}>{itemComplement}</p>
         <p key={itemPriceKey}>R${itemPrice},00</p>

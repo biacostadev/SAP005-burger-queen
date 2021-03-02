@@ -77,9 +77,16 @@ function Burger() {
 
   const adicionarItem = (item) => {
     const newArray = pedidos
-    newArray.push(item)
-    setPedidos(newArray)
-    somarItens()
+    const index = newArray.findIndex(pedido => pedido.id === item.id)
+    if(index < 0){
+      newArray.push(item)
+      setPedidos(newArray)
+      somarItens()
+    }else{
+      newArray.splice(index, 1, {...item, qnt:  newArray[index].qnt +  1})
+      setPedidos(newArray)
+      somarItens()
+    }
   }
 
   const somarItens = () => {
@@ -109,6 +116,7 @@ function Burger() {
     const name = parent.getAttribute('name');
 
     const itemPedido = {
+      qnt:1,
       complement: complement,
       flavor: flavor,
       id: id,
@@ -167,20 +175,21 @@ function Burger() {
 
             {pedidos && pedidos.map((item) =>
               <TemplateCommandBurger
-                divClassName="divPedidosIndividuais"
-                divKey={Math.random()}
-                btnKey={Math.random()}
-                btnClassName='btnDelet'
-                btnOnClick={() => deletItem(item, pedidos)}
-                btnText="X"
-                itemName={item.nome}
-                itemNameKey={Math.random()}
-                itemFlavor={item.flavor}
-                itemFlavorKey={Math.random()}
-                itemComplement={item.complement}
-                itemComplementKey={Math.random()}
-                itemPrice={item.price}
-                itemPriceKey={Math.random()}
+              divClassName="divPedidosIndividuais"
+              divKey={Math.random()}
+              btnKey={Math.random()}
+              btnClassName='btnDelet'
+              btnOnClick={() => deletItem(item, pedidos)}
+              btnText="X"
+              itemQnt={item.qnt}
+              itemName={item.nome}
+              itemNameKey={Math.random()}
+              itemFlavor={item.flavor}
+              itemFlavorKey={Math.random()}
+              itemComplement={item.complement}
+              itemComplementKey={Math.random()}
+              itemPrice={item.price}
+              itemPriceKey={Math.random()}
               />
             )}
             <h3> Total : {totalValor},00</h3>

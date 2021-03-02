@@ -39,6 +39,7 @@ function ChangeStatus() {
       .then((response) => response.json())
       .then((json) => {
         const objeto = json.Products
+        console.log(objeto[0].qnt)
         setOrders(objeto)
         console.log(orders)
       })
@@ -70,8 +71,7 @@ function ChangeStatus() {
 
         <div key={Math.random()} className="cardsPending">
           {orders && orders.map((item) => (
-            <TemplateChangeStatus
-            
+            <TemplateChangeStatus            
               itemKey={Math.random()}
               itemQtd={item.qtd}
               itemName={item.name}
