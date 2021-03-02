@@ -6,7 +6,9 @@ O **Burguer Hunger**  é uma página que foi criada para um pequeno restaurante 
 
 O cliente precisa que os 2 menus compostos por **café da manhã** e **resto do dia** , do qual ele oferece em seu estabelecimento,  apareçam na tela separadamente e conforme fosse escolhido o item, o valor seria acrescentado na comanda.  
 
+
 # Historias de Usuários :notebook_with_decorative_cover:
+
 ![image](src/img/História de usuário 1.pdf)
 ![image](src/img/História de usuário 2.pdf)
 ![image](src/img/História de usuário 3.pdf)
@@ -27,8 +29,8 @@ Pensamos também na reutilização de telas para que não houvesse dificuldade n
 Nosso planing foi feito atravéz do **Trello**, onde foi definida as sprints por histórias de usuários e tarefas separadas de acordo com o que cada uma escolheu.
 ![image](src/img/trello.png)
 
-## Tecnologias Utilizadas :computer:
 
+## Tecnologias Utilizadas :computer:
 
 >HTML
 >CSS
@@ -38,6 +40,7 @@ Nosso planing foi feito atravéz do **Trello**, onde foi definida as sprints por
 >GIT
 >GitHub
 >Trello
+
 
 ## Implementações futuras :thought_balloon:
 
