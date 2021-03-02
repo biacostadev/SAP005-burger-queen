@@ -77,9 +77,16 @@ function Burger() {
 
   const adicionarItem = (item) => {
     const newArray = pedidos
-    newArray.push(item)
-    setPedidos(newArray)
-    somarItens()
+    const index = newArray.findIndex(pedido => pedido.id === item.id)
+    if(index < 0){
+      newArray.push(item)
+      setPedidos(newArray)
+      somarItens()
+    }else{
+      newArray.splice(index, 1, {...item, qnt:  newArray[index].qnt +  1})
+      setPedidos(newArray)
+      somarItens()
+    }
   }
 
   const somarItens = () => {
@@ -109,6 +116,7 @@ function Burger() {
     const name = parent.getAttribute('name');
 
     const itemPedido = {
+      qnt:1,
       complement: complement,
       flavor: flavor,
       id: id,
@@ -173,6 +181,7 @@ function Burger() {
               btnClassName='btnDelet'
               btnOnClick={() => deletItem(item, pedidos)}
               btnText="X"
+              itemQnt={item.qnt}
               itemName={item.nome}
               itemNameKey={Math.random()}
               itemFlavor={item.flavor}
