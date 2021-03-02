@@ -62,9 +62,16 @@ function Cafe() {
 
   const adicionarItem = (item) => {
     const newArray = pedidos
-    newArray.push(item)
-    setPedidos(newArray)
-    somarItens()
+    const index = newArray.findIndex(pedido => pedido.nome === item.nome)
+    if(index < 0){
+      newArray.push(item)
+      setPedidos(newArray)
+      somarItens()
+    }else{
+      newArray.splice(index, 1, {...item, qnt:  newArray[index].qnt +  1})
+      setPedidos(newArray)
+      somarItens()
+    }
   }
 
   const somarItens = () => {
@@ -92,6 +99,7 @@ function Cafe() {
 
     const itemPedido = {
       id: id,
+      qnt:1,
       nome: name,
       price: price
     }
@@ -121,6 +129,7 @@ function Cafe() {
           <TemplateItem
             divClassName="divMae"
             divKey={Math.random()}
+            qnt= {item.qnt}
             divName={item.name}
             divId={item.id}
             divPrice={item.price}
@@ -135,19 +144,21 @@ function Cafe() {
           <div className="divPedidos">
             <h1 className="divPedidosTitle">Pedido:</h1>
 
-            {pedidos && pedidos.map((item) =>
-              <TemplateCommand
+            {pedidos && pedidos.map((item) =>             
+                <TemplateCommand
                 divClassName="divPedidosIndividuais"
                 divKey={Math.random()}
                 btnKey={Math.random()}
                 btnClassName="btnDelet"
                 btnOnClick={() => deletItem(item, pedidos)}
                 btnText="X"
+                btnAmout = {Math.random()}
+                amount={item.qnt}
                 itemName={item.nome}
                 itemPrice={item.price}
                 itemNameKey={Math.random()}
                 itemPriceKey={Math.random()}
-              />
+              />                                        
             )}
             <h3 className="totalValue">Total : {totalValor},00</h3>
           </div>

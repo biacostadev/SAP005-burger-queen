@@ -10,13 +10,16 @@ function TemplateCommand({
   itemName,
   itemPrice,
   itemNameKey,
-  itemPriceKey
+  itemPriceKey,
+  amount,
+  btnAmount
 }) {
 
   return (
     <>
       <div className={divClassName}  key={divKey}>
         <button key={btnKey} className={btnClassName} onClick={btnOnClick}>{btnText}</button>
+        <span key={btnAmount}>{amount}</span>
         <p key={itemNameKey}>{itemName}</p>
         <p key={itemPriceKey}>R${itemPrice},00</p>
       </div>
