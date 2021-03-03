@@ -3,10 +3,13 @@ import React, { useState } from 'react';
 import InputTxt from '../components/InputTxt';
 import Button from '../components/Button';
 import { useHistory } from 'react-router-dom'
+import OpenModal from '../components/Modal'
 
 
 function Login() {
   const history = useHistory()
+  const [visbleModal, setVisibleModal]= useState(false)
+  
 
   const routerSalao = () => {
     history.push('/salao')
@@ -21,6 +24,7 @@ function Login() {
 
   function loginBtn(e) {
     e.preventDefault();
+    
     fetch('https://lab-api-bq.herokuapp.com/auth', {
       method: 'POST',
       headers: {
@@ -44,15 +48,19 @@ function Login() {
         } else if (tokenUser !== null && idUser !== null && json.role === "cozinha") {
           routerCozinha();
         } else {
-          alert("Usuario não encontrado")
+          setVisibleModal(true)
         }
       })
   };
 
-  return (
-    <div className="Login">
-      <form className="LoginForm">
-
+  return (    
+    <div className="Login">  
+      <form className="LoginForm">             
+    {visbleModal ? <OpenModal>
+        <h1>Usuário não encontrado.</h1>
+        <h1>Realize seu cadastro <link rel="cadastro" href="/cadastro">aqui</link>.</h1> 
+        
+        </OpenModal>: null}   
         <InputTxt
           inputType="text"
           inputPlaceholder=" Digite seu E-mail"
