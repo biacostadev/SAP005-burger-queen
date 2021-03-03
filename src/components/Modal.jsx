@@ -1,12 +1,10 @@
 import React from 'react';
 import '../style/modal.css'
 
-const OpenModal=(props)=>{
-const {children} = props
-const {routerLink} = props
+const OpenModal=({children})=>{
   return (
    <div className="modal">           
-            <div className="content">{children}{routerLink}</div>     
+        <div className="content">{children}</div>     
    </div>       
     
   )

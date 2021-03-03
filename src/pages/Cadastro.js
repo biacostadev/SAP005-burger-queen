@@ -4,9 +4,11 @@ import Select from '../components/Select';
 import Button from '../components/Button';
 import { useHistory } from 'react-router-dom'
 import '../style/Cadastro.css';
+import OpenModal from  '../components/Modal'
 
 function Cadastro() {
   const history = useHistory()
+  const [visbleModal, setVisibleModal]= useState(false)
 
   const routerConfirm = () => {
     history.push('/confirmado')
@@ -29,7 +31,9 @@ function Cadastro() {
     })
       .then((response) => response.json())
       .then((json) => {
-        if (json.id !== null) {
+        if (json.id === undefined) {
+          setVisibleModal(true)
+        }else{
           routerConfirm();
         }
       })
@@ -38,6 +42,10 @@ function Cadastro() {
   return (
     <div className="Cadastro">
       <form className="FormCadastro">
+
+      {visbleModal ? <OpenModal >     
+        <h1>Preencha os campos corretamente.</h1>
+        </OpenModal>: null} 
         <InputTxt
           inputType="text"
           inputPlaceholder="Digite seu nome"

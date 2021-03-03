@@ -56,10 +56,11 @@ function Login() {
   return (    
     <div className="Login">  
       <form className="LoginForm">             
-    {visbleModal ? <OpenModal>
+    {visbleModal ? <OpenModal >
+      <>
         <h1>Usuário não encontrado.</h1>
-        <h1>Realize seu cadastro <link rel="cadastro" href="/cadastro">aqui</link>.</h1> 
-        
+        <h1>Faça o cadastro <a rel="stylesheet" href="/cadastro">aqui</a> para acessar.</h1> 
+      </>
         </OpenModal>: null}   
         <InputTxt
           inputType="text"
