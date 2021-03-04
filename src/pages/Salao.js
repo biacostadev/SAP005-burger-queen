@@ -66,21 +66,6 @@ function Salao() {
 
   const [nameClient, setNameClient] = useState([]);
   const [table, setTable] = useState('');
-  const [nome, setNome] = useState('');
-  const [role, setRole] = useState('');
-
-  fetch(`https://lab-api-bq.herokuapp.com/users/${id}`, {
-    headers: {
-      "accept": "application/json",
-      "Authorization": `${token}`
-    },
-
-  })
-    .then((response) => response.json())
-    .then((json) => {
-      setNome(json.name)
-      setRole(json.role)
-    })
 
   const logout = (e) => {
     e.preventDefault();
@@ -103,12 +88,12 @@ function Salao() {
             buttonText="Resto do dia"
           />
         </div>        
-        <div className="inputSalao">
         {visbleInput ? <OpenModal >
       <>
         <h1>Todos os campos devem ser preenchidos.</h1>        
       </>   
       </OpenModal>: null}  
+        <div className="inputSalao">
           <div className="inputLabel">            
             <InputTxt
               inputType="text"

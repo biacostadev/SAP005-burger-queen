@@ -38,7 +38,6 @@ function GetAllOrders() {
         .then((json) => {
           const order = json.filter(item => item.status === status)
           setOrders(order)
-          console.log(order)
         })
     } else {
       fetch("https://lab-api-bq.herokuapp.com/orders", {

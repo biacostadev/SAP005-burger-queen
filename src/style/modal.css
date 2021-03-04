@@ -1,8 +1,24 @@
 .modal h1{
-    margin-bottom: 1rem;
-    color: red;
+  margin-bottom: 1rem;
+  color: red;
   
 }
 .modal a{
-    color:#6E3D1C;
+  color:#6E3D1C;
+}
+
+@media (max-width:1000px)  {
+  .modal h1{
+    font-size: 1em;
+    line-height: 1em;
+    margin-bottom: 0.2em;    
+  }
+}
+
+@media (min-width:1040px)  {
+  .modal h1{
+    font-size: 1em;
+    line-height: 1em;
+    margin-bottom: 0.2em;    
+  }
 }

@@ -35,9 +35,7 @@ function DrinksSide() {
     const dataPedido = sessionStorage.getItem("pedidos")
     if (dataPedido) {
       const getData = JSON.parse(sessionStorage.getItem("pedidos"))
-      console.log(getData)
       const itemPedido = getData[0].pedidos
-      console.log(itemPedido)
       setPedidos(itemPedido)
     }
 
@@ -110,9 +108,6 @@ function DrinksSide() {
     const value = item.price
     setValueDelect(totalValor - value)
     setTotalValor(totalValor - Number(item.price))
-    console.log(item)
-    console.log(pedidos)
-    console.log(valueDelect)
   }
 
   const addItemToCommand = (e) => {
@@ -137,9 +132,6 @@ function DrinksSide() {
   }
 
   const setFinalPedido = (e) => {
-    console.log(pedidos)
-    console.log(totalValor)
-
     const objPedidos = [
       { "pedidos": pedidos }
     ]
@@ -147,7 +139,6 @@ function DrinksSide() {
       totalValor,
     ]
 
-    console.log(objPedidos)
     sessionStorage.setItem("pedidos", JSON.stringify(objPedidos));
     sessionStorage.setItem("valor", JSON.stringify(objValor));
 

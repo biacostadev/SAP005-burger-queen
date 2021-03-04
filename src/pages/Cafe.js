@@ -46,9 +46,7 @@ function Cafe() {
     const dataPedido = sessionStorage.getItem("pedidos")
     if (dataPedido) {
       const getData = JSON.parse(sessionStorage.getItem("pedidos"))
-      console.log(getData)
       const itemPedido = getData[0].pedidos
-      console.log(itemPedido)
       setPedidos(itemPedido)
     }
 
@@ -97,9 +95,6 @@ function Cafe() {
     const value = item.price
     setValueDelect(totalValor - value)
     setTotalValor(totalValor - Number(item.price))
-    console.log(item)
-    console.log(pedidos)
-    console.log(valueDelect)
   }
 
   const addItemToCommand = (e) => {
@@ -127,7 +122,6 @@ function Cafe() {
       totalValor,
     ]
 
-    console.log(objPedidos)
     sessionStorage.setItem("pedidos", JSON.stringify(objPedidos));
     sessionStorage.setItem("valor", JSON.stringify(objValor));
 

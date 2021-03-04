@@ -18,7 +18,6 @@ function FecharPedido() {
 
   const getValue = JSON.parse(sessionStorage.getItem("valor"))
   const valuePedido = getValue[0]
-  console.log(valuePedido)
 
   const getData = JSON.parse(sessionStorage.getItem("pedidos"))
   const itemPedido = getData[0].pedidos
@@ -27,7 +26,6 @@ function FecharPedido() {
   const nameClient = sessionStorage.getItem("nameCliente");
   const table = sessionStorage.getItem("table");
 
-  console.log(token)  
 
   function postItems(e) {
     e.preventDefault();
@@ -54,7 +52,6 @@ function FecharPedido() {
     })
       .then((response) => response.json())
       .then((json) => {
-        console.log(json)
         routerSalao()
         sessionStorage.removeItem("pedidos")
         sessionStorage.removeItem("valor")

@@ -11,8 +11,6 @@ function Login() {
   const [visbleModal, setVisibleModal]= useState(false)
   const [visbleInput, setVisibleInput]= useState(false)
 
-  
-
   const routerSalao = () => {
     history.push('/salao')
   }
@@ -40,7 +38,6 @@ function Login() {
     })
       .then((response) => response.json())
       .then((json) => {
-        console.log(json);
         const token = json.token
         const id = json.id
 
@@ -55,9 +52,7 @@ function Login() {
           setVisibleModal(true)
         }
       })
-    }
-    console.log(email)
-    
+    }    
   };
 
   return (    
