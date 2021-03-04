@@ -3,20 +3,30 @@ import Button from '../components/Button'
 import InputTxt from '../components/InputTxt';
 import { useHistory } from 'react-router-dom'
 import '../style/Salao.css';
+import OpenModal from '../components/Modal'
 
 function Salao() {
+  const [visbleInput, setVisibleInput]= useState(false)
   const history = useHistory()
   const routerCafe = () => {
+    if(nameClient === "" || table === ""){
+      setVisibleInput(true)
+    }else{
     sessionStorage.setItem("nameCliente", nameClient)
     sessionStorage.setItem("table", table)
 
     history.push('/salao/cafe')
+    }
   }
 
   const routerAllDay = () => {
+    if(nameClient === "" || table === ""){
+      setVisibleInput(true)
+    }else{
     sessionStorage.setItem("nameCliente", nameClient)
     sessionStorage.setItem("table", table)
     history.push('/salao/allday')
+    }
   }
 
   const routerPronto = (e) => {
@@ -92,9 +102,14 @@ function Salao() {
             buttonOnClick={routerAllDay}
             buttonText="Resto do dia"
           />
-        </div>
+        </div>        
         <div className="inputSalao">
-          <div className="inputLabel">
+        {visbleInput ? <OpenModal >
+      <>
+        <h1>Todos os campos devem ser preenchidos.</h1>        
+      </>   
+      </OpenModal>: null}  
+          <div className="inputLabel">            
             <InputTxt
               inputType="text"
               inputPlaceholder="Cliente"
