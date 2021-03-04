@@ -13,7 +13,15 @@
   justify-content: center;
 }
 
-.Menu button {
+.btnAllDay {
+  background-color: #6E3D1C;
+  border: 8px solid #483F3F;
+  border-radius: 18px;
+  font-size: 35px; 
+  color: #FFFFFF;
+  margin: 20px;
+  font-weight: bold;
+  height: 70px;
   width: 15em;
 }
 
@@ -36,8 +44,17 @@
     justify-content: center;
   }
 
-  .Menu button {
-    width: 20em;
+  .btnAllDay {
+    background-color: #6E3D1C;
+    border: 4px solid #483F3F;
+    border-radius: 18px;
+    font-size: 1em; 
+    color: #FFFFFF;
+    margin: 20px;
+    font-weight: bold;
+    width: 15em;
+    height: 2em;
+    cursor: pointer;
   }
 }
 
@@ -60,7 +77,16 @@
     justify-content: center;
   }
 
-  .Menu button {
-    width: 20em;
+  .btnAllDay {
+    background-color: #6E3D1C;
+    border: 4px solid #483F3F;
+    border-radius: 18px;
+    font-size: 1em; 
+    color: #FFFFFF;
+    margin: 20px;
+    font-weight: bold;
+    width: 15em;
+    height: 2em;
+    cursor: pointer;
   }
 }

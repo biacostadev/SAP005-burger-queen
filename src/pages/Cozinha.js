@@ -39,14 +39,17 @@ function Cozinha() {
       <Button
         buttonOnClick={(e) => Preparar(e)}
         buttonText="Preparar"
+        btnClassName="btnForm"
       />
       <Button
         buttonOnClick={(e) => routerAllOrders(e)}
         buttonText="Todos os Pedidos"
+        btnClassName="btnForm"
       />
        <Button
         buttonOnClick={(e) => logout(e)}
         buttonText="Sair"
+        btnClassName="btnForm"
       />
     </div>
     

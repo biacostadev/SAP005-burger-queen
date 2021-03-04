@@ -88,6 +88,7 @@ function Cadastro() {
         <Button
           buttonOnClick={(e) => postCad(e)}
           buttonText="Cadastrar"
+          btnClassName="btnForm"
         />
         
       </form>

@@ -21,10 +21,12 @@ function App() {
         <Button
         buttonOnClick={routerLogin}
         buttonText="Login"
+        btnClassName="btnForm"
         />
         <Button
         buttonOnClick={routerRegister}
         buttonText="Cadastrar"
+        btnClassName="btnForm"
         />        
       </nav>
     </div>

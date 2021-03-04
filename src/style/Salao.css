@@ -41,7 +41,7 @@ html{
 .btnSalao button,
 .SalaoVerPedidos button {
   background-color: #6E3D1C;
-  border: 8px solid #000000;
+  border: 8px solid #483F3F;
   border-radius: 18px;
   font-size: 35px; 
   color: #FFFFFF;
@@ -71,7 +71,7 @@ html{
   .Salao {
     width: 90vw;
     height: 23em;
-    border: 2px solid #000000;
+    border: 2px solid #483F3F;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -90,7 +90,7 @@ html{
   
   .btnSalao button,
   .SalaoVerPedidos button {
-    border: 2px solid #000000;
+    border: 2px solid #483F3F;
     font-size: 1em; 
     margin: 10px;
     height: 2em;
@@ -124,7 +124,7 @@ html{
   .Salao {
     width: 90vw;
     height: 23em;
-    border: 2px solid #000000;
+    border: 2px solid #483F3F;
     display: flex;
     flex-direction: row;
     justify-content: space-around;

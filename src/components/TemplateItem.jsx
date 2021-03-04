@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from "./Button";
 
 function TemplateItem({
   divClassName,
@@ -16,10 +17,17 @@ function TemplateItem({
 
   return (
     <>
-      <div onClick={divOnClick} className={divClassName} key={divKey} name={divName} id={divId} price={divPrice}>
+      <div className={divClassName} key={divKey} name={divName} id={divId} price={divPrice}>
         <h1 className="divName" key={itemNameKey}>{itemQnt}{itemName}</h1>
+        <div className="divButton">
         <h1 className="divPrice" key={itemPriceKey}> R$ {itemPrice},00</h1>
-        </div>    </>
+        <Button
+        buttonOnClick={divOnClick}
+        buttonText="+"
+        />
+        </div>
+        </div>
+    </>
   )
 
 }
