@@ -9,16 +9,16 @@ O cliente precisa que os 2 menus compostos por **café da manhã** e **resto do 
 
 # Historias de Usuários :notebook_with_decorative_cover:
 
-![image](src/img/História de usuário 1.png)
-![image](src/img/História de usuário 2.png)
-![image](src/img/História de usuário 3.png)
-![image](src/img/História de usuário 4.png)
+![image](src/img/Historia1.png)
+![image](src/img/Historia2.png)
+![image](src/img/Historia3.png)
+![image](src/img/Historia4.png)
 
 # Protótipos :black_nib:
 
 O protótipo foi elaborado para que o funcionário o utilize pelo **iPad Pro**. Foram realizados testes de usabilidade para usuários com daltonismo, e botões grandes para facilitar a leitura.
 ![image](src/img/figma.png)
-![image](src/img/figma.jpeg)
+![image](src/img/cores.jpeg)
 
 Pensamos também na reutilização de telas para que não houvesse dificuldade no carregamento, pois se trata de um serviço dinâmico.
 
