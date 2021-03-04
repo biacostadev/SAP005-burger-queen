@@ -3,11 +3,12 @@ import React from 'react';
 function Button({
   buttonOnClick,
   buttonText,
+  btnClassName
 }) {
    
   return (
     <>
-    <button onClick={buttonOnClick} className="btnComponent">{buttonText}</button>
+    <button onClick={buttonOnClick} className={btnClassName}>{buttonText}</button>
     </>
   )
 

@@ -67,6 +67,7 @@ function FecharPedido() {
         <Button
           buttonOnClick={routerCoffe}
           buttonText="Voltar"
+          btnClassName="btnResumo"
         />
         <h1 className="FecharPedidoTitle">Resumo do Pedido</h1>
         {itemPedido && itemPedido.map((item) => (
@@ -90,6 +91,7 @@ function FecharPedido() {
         <Button
           buttonOnClick={(e) => postItems(e)}
           buttonText="Enviar pedido"
+          btnClassName="btnResumo"
         />
       </div>
     </>

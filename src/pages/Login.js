@@ -72,6 +72,7 @@ function Login() {
         <Button 
           buttonOnClick={loginBtn}
           buttonText="Login"
+          btnClassName="btnForm"
         />
 
       </form>

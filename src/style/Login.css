@@ -33,14 +33,16 @@ html{
   font-size: 36px;
 }
 
-.LoginForm button {
-  width: 540px;
+.btnForm{
+  background-color: #6E3D1C;
+  width: 300px;
   height: 70px;
-  border:8px solid #483F3F;
-  font-size: 40px;
+  border: 8px solid #483F3F;
+  border-radius: 18px;
+  font-size: 35px; 
+  color: #FFFFFF;
   font-weight: bold;
-  color: white;
-  margin: 0;
+  margin: 0.5em;
 }
 
 @media (max-width:1000px)  {

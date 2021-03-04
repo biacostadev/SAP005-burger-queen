@@ -69,25 +69,29 @@ function ChangeStatus() {
     <div className="ChangeStatus">
       <h1>Preparar :</h1>
 
-        <div key={Math.random()} className="cardsPending">
-          {orders && orders.map((item) => (
-            <TemplateChangeStatus            
-              itemKey={Math.random()}
-              itemQtd={item.qtd}
-              itemName={item.name}
-            />
-          ))}
-
-         
-        </div>
-        <Button
-            buttonOnClick={putStatus}
-            buttonText="Atualizar"
+      <div key={Math.random()} className="cardsPending">
+        {orders && orders.map((item) => (
+          <TemplateChangeStatus
+            itemKey={Math.random()}
+            itemQtd={item.qtd}
+            itemName={item.name}
+            itemComplement={item.complement}
+            itemFlavor={item.flavor}
           />
-          <div className="SalaoHeader">
+        ))}
+
+
+      </div>
+      <Button
+        buttonOnClick={putStatus}
+        buttonText="Atualizar"
+        btnClassName="btnChange"
+      />
+      <div className="SalaoHeader">
         <Button
           buttonOnClick={(e) => menu(e)}
           buttonText="Pedidos"
+          btnClassName="btnChange"
         />
 
       </div>
