@@ -1,8 +1,8 @@
-# Burguer Hunger :hamburger:
+# Burger Hunger :hamburger:
 
 Acesse nossa página web clicando [aqui.](https://burgerhunger.vercel.app/) :computer_mouse: Realizado pelas desenvolvedoras:  [Ana Beatriz](https://github.com/biacostadev) e [Nayara Fugii](https://github.com/NayaraFugii).
 
-O **Burguer Hunger**  é uma página que foi criada para um pequeno restaurante de hamburgueres  que faz entregas 24 horas que está crescendo Com isso, para atender a demanda , os funcionários tem a necessidade de realizar os pedidos  dos clientes pelo tablet :iphone: e enviá-los para a cozinha, onde os pedidos são feitos por ordem de horário e após prontos, enviado ao garçom para a entrega.
+O **Burger Hunger**  é uma página que foi criada para um pequeno restaurante de hamburgueres  que faz entregas 24 horas que está crescendo Com isso, para atender a demanda , os funcionários tem a necessidade de realizar os pedidos  dos clientes pelo tablet :iphone: e enviá-los para a cozinha, onde os pedidos são feitos por ordem de horário e após prontos, enviado ao garçom para a entrega.
 
 O cliente precisa que os 2 menus compostos por **café da manhã** e **resto do dia** , do qual ele oferece em seu estabelecimento,  apareçam na tela separadamente e conforme fosse escolhido o item, o valor seria acrescentado na comanda.  
 
