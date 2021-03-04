@@ -9,6 +9,7 @@ import OpenModal from  '../components/Modal'
 function Cadastro() {
   const history = useHistory()
   const [visbleModal, setVisibleModal]= useState(false)
+  const [visbleInput, setVisibleInput]= useState(false)
 
   const routerConfirm = () => {
     history.push('/confirmado')
@@ -21,7 +22,10 @@ function Cadastro() {
 
   const postCad = (e) => {
     e.preventDefault();
-    fetch('https://lab-api-bq.herokuapp.com/users/', {
+    if(email === "" || password === ""){
+      setVisibleInput(true)
+    }else{
+      fetch('https://lab-api-bq.herokuapp.com/users/', {
       method: 'POST',
       headers: {
         'accept': 'application/json',
@@ -37,6 +41,8 @@ function Cadastro() {
           routerConfirm();
         }
       })
+    }
+    
   }
 
   return (
@@ -46,6 +52,11 @@ function Cadastro() {
       {visbleModal ? <OpenModal >     
         <h1>Preencha os campos corretamente.</h1>
         </OpenModal>: null} 
+        {visbleInput ? <OpenModal >
+      <>
+        <h1>Todos os campos devem ser preenchidos.</h1>        
+      </>   
+      </OpenModal>: null}  
         <InputTxt
           inputType="text"
           inputPlaceholder="Digite seu nome"

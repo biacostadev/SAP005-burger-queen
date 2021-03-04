@@ -9,6 +9,8 @@ import OpenModal from '../components/Modal'
 function Login() {
   const history = useHistory()
   const [visbleModal, setVisibleModal]= useState(false)
+  const [visbleInput, setVisibleInput]= useState(false)
+
   
 
   const routerSalao = () => {
@@ -18,14 +20,16 @@ function Login() {
     history.push('/cozinha')
   }
 
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
 
   function loginBtn(e) {
     e.preventDefault();
-    
-    fetch('https://lab-api-bq.herokuapp.com/auth', {
+    if(email === "" || password === ""){
+      setVisibleInput(true)
+    }else{
+      fetch('https://lab-api-bq.herokuapp.com/auth', {
       method: 'POST',
       headers: {
         'accept': 'application/json',
@@ -51,6 +55,9 @@ function Login() {
           setVisibleModal(true)
         }
       })
+    }
+    console.log(email)
+    
   };
 
   return (    
@@ -61,8 +68,18 @@ function Login() {
         <h1>Usuário não encontrado.</h1>
         <h1>Faça o cadastro <a rel="stylesheet" href="/cadastro">aqui</a> para acessar.</h1> 
       </>
+      
         </OpenModal>: null}   
+        {visbleInput ? <OpenModal >
+      <>
+        <h1>Todos os campos devem ser preenchidos.</h1>        
+      </>   
+      </OpenModal>: null}   
+      
         <InputTxt
+          //inputOnClick = {()=>{
+            //setEmail("")
+          //}}
           inputType="text"
           inputPlaceholder=" Digite seu E-mail"
           inputValue={email}
@@ -71,6 +88,9 @@ function Login() {
         />
 
         <InputTxt
+          //inputOnClick = {()=>{
+            //setPassword("")
+          //}}
           inputType="password"
           inputPlaceholder=" Digite sua senha"
           inputValue={password}
