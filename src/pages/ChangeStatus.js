@@ -39,9 +39,7 @@ function ChangeStatus() {
       .then((response) => response.json())
       .then((json) => {
         const objeto = json.Products
-        console.log(objeto[0].qnt)
         setOrders(objeto)
-        console.log(orders)
       })
   }
 
@@ -60,7 +58,6 @@ function ChangeStatus() {
     })
       .then((response) => response.json())
       .then((json) => {
-        console.log(json)
         finishChange()
       })
   }

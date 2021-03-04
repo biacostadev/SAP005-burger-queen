@@ -50,7 +50,8 @@ function Cadastro() {
       <form className="FormCadastro">
 
       {visbleModal ? <OpenModal >     
-        <h1>Preencha os campos corretamente.</h1>
+        <h1>E-mail já existente no sistema.</h1>
+        <h1>Faça o login <a rel="stylesheet" href="/login">aqui</a> para acessar.</h1> 
         </OpenModal>: null} 
         {visbleInput ? <OpenModal >
       <>

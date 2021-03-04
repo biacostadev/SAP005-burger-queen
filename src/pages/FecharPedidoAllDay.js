@@ -18,7 +18,6 @@ function FecharPedidoAllDay() {
 
   const getValue = JSON.parse(sessionStorage.getItem("valor"))
   const valuePedido = getValue[0]
-  console.log(valuePedido)
 
   const getData = JSON.parse(sessionStorage.getItem("pedidos"))
   const itemPedido = getData[0].pedidos
@@ -26,8 +25,6 @@ function FecharPedidoAllDay() {
   const token = localStorage.getItem("token")
   const nameClient = sessionStorage.getItem("nameCliente");
   const table = sessionStorage.getItem("table");
-
-  console.log(token)
 
   function postItems(e) {
     e.preventDefault();
@@ -54,7 +51,6 @@ function FecharPedidoAllDay() {
     })
       .then((response) => response.json())
       .then((json) => {
-        console.log(json)
         sessionStorage.removeItem("pedidos")
         sessionStorage.removeItem("valor")
         routerSalao()
