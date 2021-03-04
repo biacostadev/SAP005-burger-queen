@@ -19,6 +19,8 @@ function Cafe() {
 
   const routerSalao = () => {
     history.push('/salao')
+    sessionStorage.removeItem("pedidos");
+    sessionStorage.removeItem("valor");
   }
 
   const [menu, setMenu] = useState('');
@@ -59,27 +61,35 @@ function Cafe() {
   }
 
   const [pedidos, setPedidos] = useState([]);
-
+  
   const adicionarItem = (item) => {
     const newArray = pedidos
+    const price = Number(item.price);
     const index = newArray.findIndex(pedido => pedido.nome === item.nome)
     if(index < 0){
       newArray.push(item)
       setPedidos(newArray)
-      somarItens()
+      somarItens(item)
     }else{
-      newArray.splice(index, 1, {...item, qnt:  newArray[index].qnt +  1}, )
-      // newArray.splice(index, 1, {...item, price:  Number(newArray[index].price) +  Number(newArray[index].price)})
+      newArray.splice(index, 1, {...item, qnt:  newArray[index].qnt +  1, price: Number(newArray[index].price) + price})
       setPedidos(newArray)
-      somarItens()
+      somarItens(item)
     }
   }
 
-  const somarItens = () => {
-    pedidos.forEach(item => {
-      const aux = Number(item.price)
-      setTotalValor(aux + totalValor)
-    })
+  const somarItens = (item) => {
+    const newArray = pedidos;
+    const index = newArray.findIndex(pedido => pedido.nome === item.nome);
+    if(index < 0){
+      newArray.forEach(item => {
+        const aux = Number(item.price)
+        setTotalValor(aux + totalValor)
+      })
+    } else {
+      const unidade = Number(item.unidade)
+      newArray.splice(index, {...item, price: Number(newArray[index].price) + unidade})
+      setTotalValor(totalValor + unidade)
+    }
   }
 
   const deletItem = (item, pedidos) => {
@@ -93,7 +103,8 @@ function Cafe() {
   }
 
   const addItemToCommand = (e) => {
-    const parent = e.target.parentNode;
+    const parent = e.target.parentNode.parentNode;
+    console.log(parent)
     const price = parent.getAttribute('price');
     const id = parent.getAttribute('id');
     const name = parent.getAttribute('name');
@@ -102,7 +113,8 @@ function Cafe() {
       id: id,
       qnt:1,
       nome: name,
-      price: price
+      price: price,
+      unidade: price
     }
     adicionarItem(itemPedido)
   }
@@ -169,6 +181,7 @@ function Cafe() {
         <Button
           buttonOnClick={orderVolume}
           buttonText="Ver Resumo"
+          btnClassName="btnResumo"
         />
       </div>
 

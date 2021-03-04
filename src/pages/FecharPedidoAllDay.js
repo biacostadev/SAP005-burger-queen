@@ -67,6 +67,7 @@ function FecharPedidoAllDay() {
       <Button
           buttonOnClick={routerAllDay}
           buttonText="Voltar"
+          btnClassName="btnResumo"
         />
         <h1 className="FecharPedidoTitle">Resumo do Pedido</h1>
         {itemPedido && itemPedido.map((item) => (
@@ -94,6 +95,7 @@ function FecharPedidoAllDay() {
         <Button
           buttonOnClick={(e) => postItems(e)}
           buttonText="Enviar pedido"
+          btnClassName="btnResumo"
         />
       </div>
     </>

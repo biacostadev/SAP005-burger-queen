@@ -24,6 +24,8 @@ function AllDay() {
 
   const routerSalao = (e) => {
     history.push('/salao')
+    sessionStorage.removeItem("pedidos");
+    sessionStorage.removeItem("valor");
   }
 
   return (
@@ -34,6 +36,7 @@ function AllDay() {
           <Button
             buttonOnClick={(e) => { routerBurger(e) }}
             buttonText="Hambúrguer simples"
+            btnClassName="btnAllDay"
           />
         </div>
         
@@ -42,6 +45,7 @@ function AllDay() {
           <Button
             buttonOnClick={(e) => { routerBurger(e) }}
             buttonText="Hambúrguer duplo"
+            btnClassName="btnAllDay"
           />
         </div>
 
@@ -49,6 +53,7 @@ function AllDay() {
           <Button
             buttonOnClick={(e) => { routerDrinksSide(e) }}
             buttonText="Adicionais"
+            btnClassName="btnAllDay"
           />
         </div>
 
@@ -56,6 +61,7 @@ function AllDay() {
           <Button
             buttonOnClick={(e) => { routerDrinksSide(e) }}
             buttonText="Bebidas"
+            btnClassName="btnAllDay"
           />
         </div>
 
@@ -63,6 +69,7 @@ function AllDay() {
       <Button
         buttonOnClick={routerSalao}
         buttonText="Início"
+        btnClassName="btnAllDay"
       />
       </div>
       </div>

@@ -77,23 +77,32 @@ function Burger() {
 
   const adicionarItem = (item) => {
     const newArray = pedidos
+    const price = Number(item.price);
     const index = newArray.findIndex(pedido => pedido.id === item.id)
     if(index < 0){
       newArray.push(item)
       setPedidos(newArray)
-      somarItens()
+      somarItens(item)
     }else{
-      newArray.splice(index, 1, {...item, qnt:  newArray[index].qnt +  1})
+      newArray.splice(index, 1, {...item, qnt:  newArray[index].qnt +  1, price: Number(newArray[index].price) + price})
       setPedidos(newArray)
-      somarItens()
+      somarItens(item)
     }
   }
 
-  const somarItens = () => {
-    pedidos.forEach(item => {
-      const aux = Number(item.price)
-      setTotalValor(aux + totalValor)
-    })
+  const somarItens = (item) => {
+    const newArray = pedidos;
+    const index = newArray.findIndex(pedido => pedido.nome === item.nome);
+    if(index < 0){
+      newArray.forEach(item => {
+        const aux = Number(item.price)
+        setTotalValor(aux + totalValor)
+      })
+    } else {
+      const unidade = Number(item.unidade)
+      newArray.splice(index, {...item, price: Number(newArray[index].price) + unidade})
+      setTotalValor(totalValor + unidade)
+    }
   }
 
   const deletItem = (item, pedidos) => {
@@ -108,7 +117,7 @@ function Burger() {
 
   const fazendoPedido = (e) => {
     e.preventDefault();
-    const parent = e.target.parentNode;
+    const parent = e.target.parentNode.parentNode;
     const complement = parent.getAttribute('complement');
     const flavor = parent.getAttribute('flavor');
     const price = parent.getAttribute('price');
@@ -121,8 +130,8 @@ function Burger() {
       flavor: flavor,
       id: id,
       nome: name,
-      price: price
-
+      price: price,
+      unidade: price
     }
     adicionarItem(itemPedido)
   }
@@ -198,6 +207,7 @@ function Burger() {
           <Button
             buttonOnClick={(e) => setFinalPedido(e)}
             buttonText="Ver Resumo"
+            btnClassName="btnResumoBurguer"
           />
         </div>
       

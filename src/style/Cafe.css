@@ -10,6 +10,7 @@
   height: 1150px;
   border: 3px solid #000000;
   border-radius: 25px;
+  overflow: scroll;
 }
 
 .CafeList{
@@ -34,13 +35,12 @@
   width: 850px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
-  align-items: flex-start;
+  justify-content: space-around;
 }
 
 .divMae {
   width: 400px;
-  height: 250px;
+  height: 290px;
   background-color: #6E3D1C;
   border: 8px solid #483F3F;
   border-radius: 18px;
@@ -61,8 +61,27 @@
   border-bottom: #FDE5C9 5px solid;
 }
 
+.divButton{
+  margin: 1em 0;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-around;
+}
+
 .divPrice {
   font-size: 40px;
+}
+
+.divMae button {
+  width: 2em;
+  height: 2em;
+  background-color: #483F3F;
+  border: 6px solid #FDE5C9;
+  border-radius: 18px;
+  font-size: 35px; 
+  font-weight: bold;
+  color: #FFFFFF;
 }
 
 .divPedidos {
@@ -97,7 +116,7 @@
   margin-left: 62%;
 }
 
-button{
+.btnResumo {
   background-color: #6E3D1C;
   width: 300px;
   height: 70px;
@@ -105,8 +124,8 @@ button{
   border-radius: 18px;
   font-size: 35px; 
   color: #FFFFFF;
-  margin: 30px 0 0 20px;
   font-weight: bold;
+  margin: 0.5em;
 }
 
 .btnDelet{
@@ -126,6 +145,7 @@ button{
     border: 2px solid #000000;
     display: flex;
     justify-content: space-evenly;
+    overflow: initial;
   }
   
   .CafeMenuBtnBack {
@@ -146,11 +166,10 @@ button{
   
   .divMae {
     width: 40%;
-    height: 7em;
+    height: 6em;
     border: 4px solid #483F3F;
     padding: 10px;
     margin-top: 10px;
-    cursor: pointer;
   }
   
   .divName {
@@ -162,6 +181,23 @@ button{
   .divPrice {
     font-size: 1.2em;
     line-height: 1.5em;
+  }
+
+  .divButton{
+    margin: 0;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .divMae button {
+    width: 1.5em;
+    height: 1.5em;
+    border: 2px solid #FDE5C9;
+    border-radius: 10px;
+    font-size: 1em; 
+    cursor: pointer;
   }
   
   .divPedidos {
@@ -185,12 +221,10 @@ button{
     margin-left: 62%;
   }
 
-  button{
-    background-color: #6E3D1C;
+  .btnResumo{
     width: 10em;
     height: 2em;
     border: 4px solid #483F3F;
-    border-radius: 18px;
     font-size: 1em; 
     margin: 10px 0 10px 20px;
     cursor: pointer;
@@ -213,6 +247,7 @@ button{
     border: 2px solid #000000;
     display: flex;
     justify-content: space-evenly;
+    overflow: initial;
   }
   
   .CafeMenuBtnBack {
@@ -233,11 +268,10 @@ button{
   
   .divMae {
     width: 40%;
-    height: 7em;
+    height: 6em;
     border: 4px solid #483F3F;
     padding: 10px;
     margin-top: 10px;
-    cursor: pointer;
   }
   
   .divName {
@@ -249,6 +283,23 @@ button{
   .divPrice {
     font-size: 1.2em;
     line-height: 1.5em;
+  }
+
+  .divButton{
+    margin: 0;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .divMae button {
+    width: 1.5em;
+    height: 1.5em;
+    border: 2px solid #FDE5C9;
+    border-radius: 10px;
+    font-size: 1em; 
+    cursor: pointer;
   }
   
   .divPedidos {
@@ -272,12 +323,10 @@ button{
     margin-left: 62%;
   }
 
-  button{
-    background-color: #6E3D1C;
+  .btnResumo{
     width: 10em;
     height: 2em;
     border: 4px solid #483F3F;
-    border-radius: 18px;
     font-size: 1em; 
     margin: 10px 0 10px 20px;
     cursor: pointer;

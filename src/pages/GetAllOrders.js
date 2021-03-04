@@ -79,6 +79,7 @@ function GetAllOrders() {
       <Button
         buttonOnClick={(e) => menu(e)}
         buttonText="Voltar"
+        btnClassName="btnVoltar"
       />
     </div>
   )
