@@ -11,6 +11,7 @@ function ChangeStatus() {
 
   const itemId = sessionStorage.getItem("itemId");
   const newStatus = sessionStorage.getItem("newStatus");
+  const btn = sessionStorage.getItem("btn");
 
   const history = useHistory()
   const menu = (e) => {
@@ -81,13 +82,13 @@ function ChangeStatus() {
       </div>
       <Button
         buttonOnClick={putStatus}
-        buttonText="Atualizar"
+        buttonText={btn}
         btnClassName="btnChange"
       />
       <div className="SalaoHeader">
         <Button
           buttonOnClick={(e) => menu(e)}
-          buttonText="Pedidos"
+          buttonText="Voltar"
           btnClassName="btnChange"
         />
 

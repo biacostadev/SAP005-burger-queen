@@ -34,6 +34,7 @@ function Salao() {
     sessionStorage.setItem("status", "pronto");
     sessionStorage.setItem("newStatus", "entregue");
     sessionStorage.setItem("back", "salao");
+    sessionStorage.setItem("btn", "O pedido foi entregue");
     history.push('/alloders');
   }
   const routerEntregue = (e) => {
@@ -41,7 +42,7 @@ function Salao() {
     sessionStorage.setItem("status", "entregue")
     sessionStorage.setItem("newStatus", "geral");
     sessionStorage.setItem("back", "salao");
-    history.push('/alloders')
+    history.push('/seealloders')
   }
 
   const routerPending = (e) => {
@@ -49,7 +50,7 @@ function Salao() {
     sessionStorage.setItem("status", "pending");
     sessionStorage.setItem("newStatus", "pronto");
     sessionStorage.setItem("back", "salao");
-    history.push('/alloders')
+    history.push('/seealloders')
   }
 
   const routerAllOrders = (e) => {
@@ -57,7 +58,7 @@ function Salao() {
     sessionStorage.removeItem("status");
     sessionStorage.removeItem("newStatus");
     sessionStorage.setItem("back", "salao");
-    history.push('/alloders')
+    history.push('/seealloders')
   }
 
 
@@ -128,12 +129,12 @@ function Salao() {
           buttonText="Pedidos à Entregar"
         />
         <Button
-          buttonOnClick={(e) => routerEntregue(e)}
-          buttonText="Pedidos já Entregues"
-        />
-        <Button
           buttonOnClick={(e) => routerPending(e)}
           buttonText="Pedidos à Preparar"
+        />
+        <Button
+          buttonOnClick={(e) => routerEntregue(e)}
+          buttonText="Pedidos já Entregues"
         />
         <Button
           buttonOnClick={(e) => routerAllOrders(e)}

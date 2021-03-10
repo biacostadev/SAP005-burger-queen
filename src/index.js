@@ -15,6 +15,7 @@ import FecharPedido from './pages/FecharPedido';
 import FecharPedidoAllDay from './pages/FecharPedidoAllDay';
 import ChangeStatus from './pages/ChangeStatus';
 import GetAllOrders from './pages/GetAllOrders';
+import SeeAllOrders from './pages/SeeAllOrders';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter,Switch, Route,Redirect} from 'react-router-dom'
 import { isAuthenticated } from "./router-auth";
@@ -49,6 +50,7 @@ ReactDOM.render(
       <PrivateRoute path = "/salao/fecharallday" component={FecharPedidoAllDay} exact/>
       <PrivateRoute path = "/status" component={ChangeStatus} exact/>
       <PrivateRoute path = "/alloders" component={GetAllOrders} exact/>
+      <PrivateRoute path = "/seealloders" component={SeeAllOrders} exact/>
     </Switch>  
   </BrowserRouter>,
   document.getElementById('root')

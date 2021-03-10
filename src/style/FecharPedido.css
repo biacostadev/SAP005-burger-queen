@@ -81,3 +81,41 @@
     font-weight: bold;
   }
 }
+
+@media (min-width:1040px)  {
+  .FecharPedido {
+    width: 90vw;
+    height: 23em;
+    border: 2px solid #000000;
+  }
+
+  .FecharPedidoTitle {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+  }
+  
+  .FecharPedidoItem {
+    width: 23em;
+    font-size: 1em;
+  }
+  
+  .FecharPedidoTotal {
+    margin-top: 20px;
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+  
+  .FecharPedidoBtn {
+    margin: 0 auto;
+    width: 70vw;
+    background-color: #6E3D1C;
+    height: 100px;
+    border: 8px solid #000000;
+    border-radius: 18px;
+    font-size: 50px;
+    line-height: 55px;
+    color: #FFFFFF;
+    margin-top: 30px;
+    font-weight: bold;
+  }
+}

@@ -22,6 +22,7 @@ function Cozinha() {
     sessionStorage.setItem("status", "pending");
     sessionStorage.setItem("newStatus", "pronto");
     sessionStorage.setItem("back", "cozinha");
+    sessionStorage.setItem("btn", "O pedido está pronto");
     history.push('/alloders')
   }
 
@@ -30,7 +31,7 @@ function Cozinha() {
     sessionStorage.removeItem("status");
     sessionStorage.removeItem("newStatus");
     sessionStorage.setItem("back", "cozinha");
-    history.push('/alloders')
+    history.push('/seealloders')
   }
 
   return (

@@ -7,14 +7,16 @@
     align-items: center;
     display: flex;
     flex-direction: column;
-    overflow: scroll;
   }
 
   .GetAllOrdersCards{
+    height: 90%;
+    width: 90%;
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
+    overflow: scroll;
   }
 
 .cards{  
@@ -50,7 +52,6 @@
     border: 2px solid #000000;
     display: flex;
     justify-content: center;
-    align-items: center;
   }
 
   .cards{
@@ -84,7 +85,6 @@
     border: 2px solid #000000;
     display: flex;
     justify-content: center;
-    align-items: center;
   }
 
   .cards{
