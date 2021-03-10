@@ -4,7 +4,7 @@ import Button from '../components/Button'
 import TemplateGetOrders from '../components/TemplateGetOrders'
 import '../style/GetAllOrders.css';
 
-function GetAllOrders() {
+function SeeAllOrders() {
   useEffect(() => {
     getOrders()
   }, [])
@@ -16,10 +16,6 @@ function GetAllOrders() {
   const menu = (e) => {
     e.preventDefault();
     history.push(`/${back}`);
-  }
-
-  const routerStatus = () => {
-    history.push('/status');
   }
 
   const token = localStorage.getItem("token");
@@ -60,16 +56,12 @@ function GetAllOrders() {
         {orders && orders.map((item) => (
           <TemplateGetOrders
             divKey={Math.random()}
-            divOnClick={() => {
-              sessionStorage.setItem("itemId", item.id)
-              routerStatus()
-            }}
             divClassName="cards"
             itemStatus={item.status}
             clientNameKey={Math.random()}
             clientName={item.client_name}
             itemIdKey={Math.random()}
-            itemId={item.table}
+            itemId={item.id}
             itemCreatedAtKey={Math.random()}
             itemCreatedAt={item.createdAt}
           />
@@ -85,4 +77,4 @@ function GetAllOrders() {
 }
 
 
-export default GetAllOrders;
+export default SeeAllOrders;
