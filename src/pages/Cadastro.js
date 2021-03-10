@@ -91,8 +91,8 @@ function Cadastro() {
           optionValue2="salao"
           optionValue3="cozinha"
           optionText1="Cargo"
-          optionText2="Garçom"
-          optionText3="Cozinheiro"
+          optionText2="Garçom/Garçonete"
+          optionText3="Cozinheiro(a)"
           optionClassName="cadInputOption"
           optionDisabled
         />

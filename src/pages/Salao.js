@@ -126,15 +126,15 @@ function Salao() {
       <div className="SalaoVerPedidos">
         <Button
           buttonOnClick={(e) => routerPronto(e)}
-          buttonText="Pedidos Prontos"
+          buttonText="Pedidos à Entregar"
         />
         <Button
           buttonOnClick={(e) => routerPending(e)}
-          buttonText="Pedidos Pendentes"
+          buttonText="Pedidos à Preparar"
         />
         <Button
           buttonOnClick={(e) => routerEntregue(e)}
-          buttonText="Pedidos Entregues"
+          buttonText="Pedidos já Entregues"
         />
         <Button
           buttonOnClick={(e) => routerAllOrders(e)}
