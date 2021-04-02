@@ -1,50 +1,78 @@
-# Burger Hunger :hamburger:
+<h1 align="center">Burger Hunger API</p>
 
-Acesse nossa página web clicando [aqui.](https://burgerhunger.vercel.app/) :computer_mouse: Realizado pelas desenvolvedoras:  [Ana Beatriz](https://github.com/biacostadev) e [Nayara Fugii](https://github.com/NayaraFugii).
+<h4>REST API para a solução web da hamburgueria Burger Hunger.</h4>
 
-O **Burger Hunger**  é uma página que foi criada para um pequeno restaurante de hamburgueres  que faz entregas 24 horas que está crescendo Com isso, para atender a demanda , os funcionários tem a necessidade de realizar os pedidos  dos clientes pelo tablet :iphone: e enviá-los para a cozinha, onde os pedidos são feitos por ordem de horário e após prontos, enviado ao garçom para a entrega.
+---
 
-O cliente precisa que os 2 menus compostos por **café da manhã** e **resto do dia** , do qual ele oferece em seu estabelecimento,  apareçam na tela separadamente e conforme fosse escolhido o item, o valor seria acrescentado na comanda.  
+## Índice
 
+- [1. Resumo do Projeto](#1-resumo-do-projeto)
+- [2. Endpoints disponíveis](#2-endpoints-disponíveis)
+- [3. Tecnologias Utilizadas](#3-tecnologias-utilizadas)
+- [4. Implementações Futuras](#4-implementações-futuras)
 
-# Historias de Usuários :notebook_with_decorative_cover:
+## 1. Resumo do Projeto
 
-![image](src/img/Historia1.png)
-![image](src/img/Historia2.png)
-![image](src/img/Historia3.png)
-![image](src/img/Historia4.png)
+A solução web para a hamburgueria Burger Hunger foi criada anteriormente (pode ser acessada clicando [aqui](https://burgerhunger.vercel.app/)), utilizando uma REST API já existente, disponibilizada pela equipe técnica da Laboratória.
+Neste projeto foi proposta a criação de uma nova REST API (sua documentação pode ser acessada clicando [aqui](https://testando-db.herokuapp.com/)), exclusiva para a hamburgueria, que atendesse todas as necessidades do fluxo de trabalho dos funcionários no dia a dia:
+ - criação e atualização de cadastro para novos funcionários,
+ - anotação dos pedidos,
+ - visualização do pedido pela equipe da cozinha,
+ - atualização do status do pedido
 
-# Protótipos :black_nib:
+## 2. Endpoints disponíveis
+#### `[ Base URL: testando-db.herokuapp.com/ ]`
+#### `[ Documentação da API: https://testando-db.herokuapp.com/ ]`
 
-O protótipo foi elaborado para que o funcionário o utilize pelo **iPad Pro**. Foram realizados testes de usabilidade para usuários com daltonismo, e botões grandes para facilitar a leitura.
-![image](src/img/figma.png)
-![image](src/img/cores.jpeg)
+### 2.1 `/auth`
 
-Pensamos também na reutilização de telas para que não houvesse dificuldade no carregamento, pois se trata de um serviço dinâmico.
+* [x] `POST /auth`
 
-![image](src/img/testeUsuario.png)
+### 2.2 `/users`
 
+* [x] `GET /users`
+* [x] `GET /users/:userId`
+* [x] `POST /users`
+* [x] `PATCH /users/:userId`
+* [x] `DELETE /users/:userId`
 
-# Metodologia Ágil :label:
+### 2.3 `/products`
 
-Nosso planing foi feito atravéz do **Trello**, onde foi definida as sprints por histórias de usuários e tarefas separadas de acordo com o que cada uma escolheu.
-![image](src/img/trello.png)
+* [x] `GET /products`
+* [x] `GET /products/:productid`
+* [x] `POST /products`
+* [x] `POST /products/many`
+* [x] `PATCH /products/:productid`
+* [x] `DELETE /products/:productid`
 
+### 2.4 `/orders`
 
-## Tecnologias Utilizadas :computer:
+* [x] `GET /orders`
+* [x] `GET /orders/:orderid`
+* [x] `POST /orders`
+* [x] `PATCH /orders/:orderid`
+* [x] `DELETE /orders/:orderid`
 
->HTML
->CSS
->JavaScript
->ReactJs
->Consumos de API
->GIT
->GitHub
->Trello
+## 3. Tecnologias Utilizadas
 
+ - Node JS
+ - JavaScript
+ - Git e GitHub
+ - Express
+ - JsonWebToken
+ - PostgreSQL
+ - Heroku
+ - Sequelize
+ - Swagger
+ - Insomnia
 
-## Implementações futuras :thought_balloon:
+## 4. Implementações Futuras
 
-- Interface para realização de pedidos dos clientes. 
-- Visualização tempo médio de realização de entrega do pedido.
-- O menu do café da manhã seria bloqueado após o horário estipulado pelo estabelecimento para que não houvesse enganos ao realizar os pedidos.
+-   Testes unitários
+-   Testes  _e2e_
+-  Endpoint `/totem`, para a implementação de um totem, ontem os clientes tenham mais autonomia ao efetuar um pedido na hamburgueria, dessa forma, diminuindo a carga dos funcionários do salão
+- Endpoint `/clients`, para a implementação de um sistema de delivery da hamburgueria.
+---
+<p align="center">
+Desenvolvido por: <a href="https://github.com/biacostadev">Ana Beatriz Costa</a> 
+<p/>
